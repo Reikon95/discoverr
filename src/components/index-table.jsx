@@ -8,6 +8,7 @@ import TableHead from "@material-ui/core/TableHead"
 import TableRow from "@material-ui/core/TableRow"
 import Paper from "@material-ui/core/Paper"
 import "./index-table.css"
+import ProfilePage from "./profile-page/profile-page"
 
 const useStyles = makeStyles({
   table: {
@@ -43,10 +44,51 @@ const rows = [
     "Rapper",
     "Fashion",
   ]),
+  createData("Ninja", 12360, 15390000, 22524, 460000, [
+    "Gaming",
+    "Streaming",
+    "Fortnite",
+  ]),
+  createData("Coach Jeremy", 210000, 181000, 37342, 43124, [
+    "Ice Hockey",
+    "Sports Coaching",
+  ]),
+  createData("Dan Abramov", 2620, 160000, 242031, 0, [
+    "Programming",
+    "Coding",
+    "Javascript",
+  ]),
+  createData("Cristiano Ronaldo", 120000000, 0, 2100000, 4342012, [
+    "Football (Soccer)",
+    "Athletes",
+  ]),
   createData("Yung Lean", 35600, 21000, 0, 0, [
     "Musician",
     "Rapper",
     "Fashion",
+  ]),
+  createData("Yung Lean", 35600, 21000, 0, 0, [
+    "Musician",
+    "Rapper",
+    "Fashion",
+  ]),
+  createData("Ninja", 12360, 15390000, 22524, 460000, [
+    "Gaming",
+    "Streaming",
+    "Fortnite",
+  ]),
+  createData("Coach Jeremy", 210000, 181000, 37342, 43124, [
+    "Ice Hockey",
+    "Sports Coaching",
+  ]),
+  createData("Dan Abramov", 2620, 160000, 242031, 0, [
+    "Programming",
+    "Coding",
+    "Javascript",
+  ]),
+  createData("Cristiano Ronaldo", 120000000, 0, 2100000, 4342012, [
+    "Football (Soccer)",
+    "Athletes",
   ]),
   createData("Yung Lean", 35600, 21000, 0, 0, [
     "Musician",
@@ -63,10 +105,42 @@ const rows = [
     "Rapper",
     "Fashion",
   ]),
-  createData("Yung Lean", 35600, 21000, 0, 0, [
-    "Musician",
-    "Rapper",
-    "Fashion",
+
+  createData("Ninja", 12360, 15390000, 22524, 460000, [
+    "Gaming",
+    "Streaming",
+    "Fortnite",
+  ]),
+  createData("Coach Jeremy", 210000, 181000, 37342, 43124, [
+    "Ice Hockey",
+    "Sports Coaching",
+  ]),
+  createData("Dan Abramov", 2620, 160000, 242031, 0, [
+    "Programming",
+    "Coding",
+    "Javascript",
+  ]),
+  createData("Cristiano Ronaldo", 120000000, 0, 2100000, 4342012, [
+    "Football (Soccer)",
+    "Athletes",
+  ]),
+  createData("Ninja", 12360, 15390000, 22524, 460000, [
+    "Gaming",
+    "Streaming",
+    "Fortnite",
+  ]),
+  createData("Coach Jeremy", 210000, 181000, 37342, 43124, [
+    "Ice Hockey",
+    "Sports Coaching",
+  ]),
+  createData("Dan Abramov", 2620, 160000, 242031, 0, [
+    "Programming",
+    "Coding",
+    "Javascript",
+  ]),
+  createData("Cristiano Ronaldo", 120000000, 0, 2100000, 4342012, [
+    "Football (Soccer)",
+    "Athletes",
   ]),
   createData("Yung Lean", 35600, 21000, 0, 0, [
     "Musician",
@@ -83,95 +157,23 @@ const rows = [
     "Rapper",
     "Fashion",
   ]),
-  createData("Yung Lean", 35600, 21000, 0, 0, [
-    "Musician",
-    "Rapper",
-    "Fashion",
+  createData("Ninja", 12360, 15390000, 22524, 460000, [
+    "Gaming",
+    "Streaming",
+    "Fortnite",
   ]),
-  createData("Yung Lean", 35600, 21000, 0, 0, [
-    "Musician",
-    "Rapper",
-    "Fashion",
+  createData("Coach Jeremy", 210000, 181000, 37342, 43124, [
+    "Ice Hockey",
+    "Sports Coaching",
   ]),
-  createData("Yung Lean", 35600, 21000, 0, 0, [
-    "Musician",
-    "Rapper",
-    "Fashion",
+  createData("Dan Abramov", 2620, 160000, 242031, 0, [
+    "Programming",
+    "Coding",
+    "Javascript",
   ]),
-  createData("Yung Lean", 35600, 21000, 0, 0, [
-    "Musician",
-    "Rapper",
-    "Fashion",
-  ]),
-  createData("Yung Lean", 35600, 21000, 0, 0, [
-    "Musician",
-    "Rapper",
-    "Fashion",
-  ]),
-  createData("Yung Lean", 35600, 21000, 0, 0, [
-    "Musician",
-    "Rapper",
-    "Fashion",
-  ]),
-  createData("Yung Lean", 35600, 21000, 0, 0, [
-    "Musician",
-    "Rapper",
-    "Fashion",
-  ]),
-  createData("Yung Lean", 35600, 21000, 0, 0, [
-    "Musician",
-    "Rapper",
-    "Fashion",
-  ]),
-  createData("Yung Lean", 35600, 21000, 0, 0, [
-    "Musician",
-    "Rapper",
-    "Fashion",
-  ]),
-  createData("Yung Lean", 35600, 21000, 0, 0, [
-    "Musician",
-    "Rapper",
-    "Fashion",
-  ]),
-  createData("Yung Lean", 35600, 21000, 0, 0, [
-    "Musician",
-    "Rapper",
-    "Fashion",
-  ]),
-  createData("Yung Lean", 35600, 21000, 0, 0, [
-    "Musician",
-    "Rapper",
-    "Fashion",
-  ]),
-  createData("Yung Lean", 35600, 21000, 0, 0, [
-    "Musician",
-    "Rapper",
-    "Fashion",
-  ]),
-  createData("Yung Lean", 35600, 21000, 0, 0, [
-    "Musician",
-    "Rapper",
-    "Fashion",
-  ]),
-  createData("Yung Lean", 35600, 21000, 0, 0, [
-    "Musician",
-    "Rapper",
-    "Fashion",
-  ]),
-  createData("Yung Lean", 35600, 21000, 0, 0, [
-    "Musician",
-    "Rapper",
-    "Fashion",
-  ]),
-  createData("Yung Lean", 35600, 21000, 0, 0, [
-    "Musician",
-    "Rapper",
-    "Fashion",
-  ]),
-  createData("Yung Lean", 35600, 21000, 0, 0, [
-    "Musician",
-    "Rapper",
-    "Fashion",
+  createData("Cristiano Ronaldo", 120000000, 0, 2100000, 4342012, [
+    "Football (Soccer)",
+    "Athletes",
   ]),
   createData("Yung Lean", 35600, 21000, 0, 0, [
     "Musician",
@@ -221,6 +223,7 @@ export default function IndexTable() {
           </TableBody>
         </Table>
       </TableContainer>
+      {ProfilePage("Ninja")}
     </>
   )
 }

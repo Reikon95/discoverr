@@ -1,0 +1,9 @@
+.profile-page-table {
+  height: 40vh;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  width: 50vwx;
+}
