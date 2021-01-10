@@ -9,6 +9,18 @@ import TableRow from "@material-ui/core/TableRow"
 import Paper from "@material-ui/core/Paper"
 import "./index-table.css"
 import ProfilePage from "./profile-page/profile-page"
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useRouteMatch,
+  useParams,
+} from "react-router-dom"
+
+// - filter country and language (this could be two filters (France, English))
+// - Age (if publically available) - including their follower base, if available
+// if they're verified through US 
 
 const useStyles = makeStyles({
   table: {
@@ -209,9 +221,7 @@ export default function IndexTable() {
             {rows.map((row) => (
               <TableRow key={row.name}>
                 <TableCell component="th" scope="row">
-                  <a href="https:/www.bbc.co.uk" target="_blank">
-                    {row.name}
-                  </a>
+                  <Link to="/Ninja">{row.name}</Link>
                 </TableCell>
                 <TableCell align="right">{row.instagram}</TableCell>
                 <TableCell align="right">{row.youtube}</TableCell>

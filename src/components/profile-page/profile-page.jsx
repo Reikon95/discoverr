@@ -50,7 +50,7 @@ function createTagList(tags) {
   return tags.join(", ")
 }
 
-export default function ProfilePage({user}) {
+export default function ProfilePage({ user }) {
   const classes = useStyles()
 
   return (
@@ -59,7 +59,7 @@ export default function ProfilePage({user}) {
       Hello, I'm Ninja. I am mainly known for streaming the battle royale game
       Fortnite on Twitch. I work with a variety of brands but am mainly focused
       on the technology industry.
-      <h3>Ninja Accepts Brand Deals On the following channels </h3>
+      <h3>{user} Accepts Brand Deals On the following channels </h3>
       <TableContainer
         component={Paper}
         className="container profile-page-table"
@@ -93,6 +93,7 @@ export default function ProfilePage({user}) {
           </TableBody>
         </Table>
       </TableContainer>
+      <h3>Contact {user}</h3>
       <div className="form-container">
         <div>
           <label>Name: </label>
@@ -102,7 +103,7 @@ export default function ProfilePage({user}) {
           <label>Company: </label>
           <input type="text"></input>
         </div>
-        <textarea placeholder="Your message here"></textarea>
+        <textarea placeholder="Hi Ninja, this is Cam and Keegan from GetInfluential. We are a rapidly growing marketing SAAS platform and believe we could work well together to drive user acquisition. We'd be interested in a couple of shoutouts on your stream next Thursday. Would you be willing to do a bulk deal with us?"></textarea>
         <button>Send</button>
       </div>
     </>

@@ -38,7 +38,9 @@ function App() {
             >
               <MenuIcon />
             </IconButton>
-            <Typography variant="h6" className={classes.title}></Typography>
+            <Typography variant="h6" className={classes.title}>
+              GetInfluential
+            </Typography>
             <Button color="inherit">Logout</Button>
           </Toolbar>
         </AppBar>
