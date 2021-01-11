@@ -20,7 +20,7 @@ import {
 
 // - filter country and language (this could be two filters (France, English))
 // - Age (if publically available) - including their follower base, if available
-// if they're verified through US 
+// if they're verified through US
 
 const useStyles = makeStyles({
   table: {
@@ -198,8 +198,22 @@ function createTagList(tags) {
   return tags.join(", ")
 }
 
+function filterByTags(tags) {
+  let test = rows.filter((row) => {
+    for (let tag of row.tags) {
+      if (tags.includes(tag)) {
+        console.log(tags, tag)
+        return row
+      }
+    }
+  })
+  return test
+}
+
 export default function IndexTable() {
   const classes = useStyles()
+  console.log(rows)
+  console.log(filterByTags(["Ice Hockey"]))
 
   return (
     <>
