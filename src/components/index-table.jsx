@@ -201,7 +201,7 @@ function createTagList(tags) {
 }
 
 function filterByTags(tags) {
-  let test = rows.filter((row) => {
+  let filteredArray = rows.filter((row) => {
     for (let tag of row.tags) {
       if (tags.includes(tag)) {
         console.log(tags, tag)
@@ -209,13 +209,16 @@ function filterByTags(tags) {
       }
     }
   })
-  filteredView = test
+  filteredView = filteredArray
   return
+}
+
+function clearAllFilters() {
+  filteredView = rows
 }
 
 export default function IndexTable() {
   const classes = useStyles()
-  console.log(rows)
   console.log(filterByTags(["Fortnite"]))
 
   return (
