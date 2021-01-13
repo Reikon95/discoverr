@@ -297,7 +297,6 @@ export default function IndexTable() {
           </TableBody>
         </Table>
       </TableContainer>
-      {ProfilePage("Ninja")}
     </>
   )
 }
