@@ -1,3 +1,7 @@
 .container {
   height: 100vh;
 }
+
+.range-slider {
+  width: 300px !important;
+}

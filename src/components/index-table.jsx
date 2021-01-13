@@ -1,4 +1,4 @@
-import { React } from "react"
+import { React, useState } from "react"
 import { makeStyles } from "@material-ui/core/styles"
 import Table from "@material-ui/core/Table"
 import TableBody from "@material-ui/core/TableBody"
@@ -7,6 +7,9 @@ import TableContainer from "@material-ui/core/TableContainer"
 import TableHead from "@material-ui/core/TableHead"
 import TableRow from "@material-ui/core/TableRow"
 import Paper from "@material-ui/core/Paper"
+import Typography from "@material-ui/core/Typography"
+import Slider from "@material-ui/core/Slider"
+
 import "./index-table.css"
 import ProfilePage from "./profile-page/profile-page"
 import {
@@ -20,7 +23,7 @@ import {
 
 // - filter country and language (this could be two filters (France, English))
 // - Age (if publically available) - including their follower base, if available
-// if they're verified through US 
+// if they're verified through US
 
 const useStyles = makeStyles({
   table: {
@@ -194,17 +197,79 @@ const rows = [
   ]),
 ]
 
+let filteredView = rows
+
 function createTagList(tags) {
   return tags.join(", ")
 }
 
+function filterByTags(tags) {
+  let filteredArray = rows.filter((row) => {
+    for (let tag of row.tags) {
+      if (tags.includes(tag)) {
+        console.log(tags, tag)
+        return row
+      }
+    }
+  })
+  filteredView = filteredArray
+  return
+}
+
+function clearAllFilters() {
+  filteredView = rows
+}
+
+function instagramValueText(value) {
+  return `${value}K`
+}
+
 export default function IndexTable() {
   const classes = useStyles()
+  console.log(filterByTags(["Fortnite"]))
+  const [instagramFollowers, setInstagramFollowers] = useState([0, 10000000])
+
+  function handleInstagramFollowersChange(e, newValue) {
+    setInstagramFollowers(newValue)
+  }
 
   return (
     <>
       <h1>Available Influencers</h1>
       Click to enter the profile of each influencer for more detailed analysis.
+      <h3>Filters</h3>
+      <label>Tags</label>
+      <input type="text" />
+      <label>Country</label>
+      <input type="text" />
+      <label>Language</label>
+      <select>
+        <option>English</option>
+        <option>German (Deustch)</option>
+        <option>French (Francais)</option>
+        <option>Spanish (Espanol)</option>
+      </select>
+      <label>Instagram Followers (000's)</label>
+      <Slider
+        value={instagramFollowers}
+        onChange={handleInstagramFollowersChange}
+        valueLabelDisplay="auto"
+        aria-labelledby="range-slider"
+        getAriaValueText={instagramValueText}
+        min={0}
+        max={1000}
+        step={1}
+        className="range-slider"
+      />
+      <label>Youtube Subscribers</label>
+      <input type="range" min="0" max="100000000" step="2500" />{" "}
+      <label>Twitter Followers</label>
+      <input type="range" min="0" max="100000000" step="2500" />{" "}
+      <label>TikTok Followers</label>
+      <input type="range" min="0" max="100000000" step="2500" />{" "}
+      <label>Facebook Followers</label>
+      <input type="range" min="0" max="100000000" step="2500" />
+      <button>Clear All Filters</button>
       <TableContainer component={Paper} className="container">
         <Table className={classes.table} stickyHeader aria-label="sticky table">
           <TableHead>
@@ -218,7 +283,7 @@ export default function IndexTable() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {rows.map((row) => (
+            {filteredView.map((row) => (
               <TableRow key={row.name}>
                 <TableCell component="th" scope="row">
                   <Link to="/Ninja">{row.name}</Link>
@@ -233,7 +298,6 @@ export default function IndexTable() {
           </TableBody>
         </Table>
       </TableContainer>
-      {ProfilePage("Ninja")}
     </>
   )
 }
