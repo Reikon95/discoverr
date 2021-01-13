@@ -1,4 +1,4 @@
-import { React } from "react"
+import { React, useState } from "react"
 import { makeStyles } from "@material-ui/core/styles"
 import Table from "@material-ui/core/Table"
 import TableBody from "@material-ui/core/TableBody"
@@ -7,6 +7,9 @@ import TableContainer from "@material-ui/core/TableContainer"
 import TableHead from "@material-ui/core/TableHead"
 import TableRow from "@material-ui/core/TableRow"
 import Paper from "@material-ui/core/Paper"
+import Typography from "@material-ui/core/Typography"
+import Slider from "@material-ui/core/Slider"
+
 import "./index-table.css"
 import ProfilePage from "./profile-page/profile-page"
 import {
@@ -217,14 +220,55 @@ function clearAllFilters() {
   filteredView = rows
 }
 
+function instagramValueText(value) {
+  return `${value}K`
+}
+
 export default function IndexTable() {
   const classes = useStyles()
   console.log(filterByTags(["Fortnite"]))
+  const [instagramFollowers, setInstagramFollowers] = useState([0, 10000000])
+
+  function handleInstagramFollowersChange(e, newValue) {
+    setInstagramFollowers(newValue)
+  }
 
   return (
     <>
       <h1>Available Influencers</h1>
       Click to enter the profile of each influencer for more detailed analysis.
+      <h3>Filters</h3>
+      <label>Tags</label>
+      <input type="text" />
+      <label>Country</label>
+      <input type="text" />
+      <label>Language</label>
+      <select>
+        <option>English</option>
+        <option>German (Deustch)</option>
+        <option>French (Francais)</option>
+        <option>Spanish (Espanol)</option>
+      </select>
+      <label>Instagram Followers (000's)</label>
+      <Slider
+        value={instagramFollowers}
+        onChange={handleInstagramFollowersChange}
+        valueLabelDisplay="auto"
+        aria-labelledby="range-slider"
+        getAriaValueText={instagramValueText}
+        min={0}
+        max={1000}
+        step={1}
+        className="range-slider"
+      />
+      <label>Youtube Subscribers</label>
+      <input type="range" min="0" max="100000000" step="2500" />{" "}
+      <label>Twitter Followers</label>
+      <input type="range" min="0" max="100000000" step="2500" />{" "}
+      <label>TikTok Followers</label>
+      <input type="range" min="0" max="100000000" step="2500" />{" "}
+      <label>Facebook Followers</label>
+      <input type="range" min="0" max="100000000" step="2500" />
       <TableContainer component={Paper} className="container">
         <Table className={classes.table} stickyHeader aria-label="sticky table">
           <TableHead>
