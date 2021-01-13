@@ -269,6 +269,7 @@ export default function IndexTable() {
       <input type="range" min="0" max="100000000" step="2500" />{" "}
       <label>Facebook Followers</label>
       <input type="range" min="0" max="100000000" step="2500" />
+      <button>Clear All Filters</button>
       <TableContainer component={Paper} className="container">
         <Table className={classes.table} stickyHeader aria-label="sticky table">
           <TableHead>
