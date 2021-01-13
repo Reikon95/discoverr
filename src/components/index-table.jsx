@@ -194,6 +194,8 @@ const rows = [
   ]),
 ]
 
+let filteredView = rows
+
 function createTagList(tags) {
   return tags.join(", ")
 }
@@ -207,13 +209,14 @@ function filterByTags(tags) {
       }
     }
   })
-  return test
+  filteredView = test
+  return
 }
 
 export default function IndexTable() {
   const classes = useStyles()
   console.log(rows)
-  console.log(filterByTags(["Ice Hockey"]))
+  console.log(filterByTags(["Fortnite"]))
 
   return (
     <>
@@ -232,7 +235,7 @@ export default function IndexTable() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {rows.map((row) => (
+            {filteredView.map((row) => (
               <TableRow key={row.name}>
                 <TableCell component="th" scope="row">
                   <Link to="/Ninja">{row.name}</Link>
