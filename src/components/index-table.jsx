@@ -31,170 +31,318 @@ const useStyles = makeStyles({
   },
 })
 
-function createData(name, instagram, youtube, twitter, tiktok, tags) {
-  return { name, instagram, youtube, twitter, tiktok, tags }
+function createData(name, instagram, youtube, twitter, tiktok, tags, country) {
+  return { name, instagram, youtube, twitter, tiktok, tags, country }
 }
 
 const rows = [
-  createData("Ninja", 12360, 15390000, 22524, 460000, [
-    "Gaming",
-    "Streaming",
-    "Fortnite",
-  ]),
-  createData("Coach Jeremy", 210000, 181000, 37342, 43124, [
-    "Ice Hockey",
-    "Sports Coaching",
-  ]),
-  createData("Dan Abramov", 2620, 160000, 242031, 0, [
-    "Programming",
-    "Coding",
-    "Javascript",
-  ]),
-  createData("Cristiano Ronaldo", 120000000, 0, 2100000, 4342012, [
-    "Football (Soccer)",
-    "Athletes",
-  ]),
-  createData("Yung Lean", 35600, 21000, 0, 0, [
-    "Musician",
-    "Rapper",
-    "Fashion",
-  ]),
-  createData("Ninja", 12360, 15390000, 22524, 460000, [
-    "Gaming",
-    "Streaming",
-    "Fortnite",
-  ]),
-  createData("Coach Jeremy", 210000, 181000, 37342, 43124, [
-    "Ice Hockey",
-    "Sports Coaching",
-  ]),
-  createData("Dan Abramov", 2620, 160000, 242031, 0, [
-    "Programming",
-    "Coding",
-    "Javascript",
-  ]),
-  createData("Cristiano Ronaldo", 120000000, 0, 2100000, 4342012, [
-    "Football (Soccer)",
-    "Athletes",
-  ]),
-  createData("Yung Lean", 35600, 21000, 0, 0, [
-    "Musician",
-    "Rapper",
-    "Fashion",
-  ]),
-  createData("Yung Lean", 35600, 21000, 0, 0, [
-    "Musician",
-    "Rapper",
-    "Fashion",
-  ]),
-  createData("Ninja", 12360, 15390000, 22524, 460000, [
-    "Gaming",
-    "Streaming",
-    "Fortnite",
-  ]),
-  createData("Coach Jeremy", 210000, 181000, 37342, 43124, [
-    "Ice Hockey",
-    "Sports Coaching",
-  ]),
-  createData("Dan Abramov", 2620, 160000, 242031, 0, [
-    "Programming",
-    "Coding",
-    "Javascript",
-  ]),
-  createData("Cristiano Ronaldo", 120000000, 0, 2100000, 4342012, [
-    "Football (Soccer)",
-    "Athletes",
-  ]),
-  createData("Yung Lean", 35600, 21000, 0, 0, [
-    "Musician",
-    "Rapper",
-    "Fashion",
-  ]),
-  createData("Yung Lean", 35600, 21000, 0, 0, [
-    "Musician",
-    "Rapper",
-    "Fashion",
-  ]),
-  createData("Yung Lean", 35600, 21000, 0, 0, [
-    "Musician",
-    "Rapper",
-    "Fashion",
-  ]),
+  createData(
+    "Ninja",
+    12360,
+    15390000,
+    22524,
+    460000,
+    ["Gaming", "Streaming", "Fortnite"],
+    "USA"
+  ),
+  createData(
+    "Coach Jeremy",
+    210000,
+    181000,
+    37342,
+    43124,
+    ["Ice Hockey", "Sports Coaching"],
+    "Canada"
+  ),
+  // createData(
+  //   "Dan Abramov",
+  //   2620,
+  //   160000,
+  //   242031,
+  //   0,
+  //   ["Programming", "Coding", "Javascript"],
+  //   "UK"
+  // ),
+  // createData(
+  //   "Cristiano Ronaldo",
+  //   120000000,
+  //   0,
+  //   2100000,
+  //   4342012,
+  //   ["Football (Soccer)", "Athletes"],
+  //   "USA"
+  // ),
+  // createData(
+  //   "Yung Lean",
+  //   35600,
+  //   21000,
+  //   0,
+  //   0,
+  //   ["Musician", "Rapper", "Fashion"],
+  //   "Sweden"
+  // ),
+  // createData(
+  //   "Ninja",
+  //   12360,
+  //   15390000,
+  //   22524,
+  //   460000,
+  //   ["Gaming", "Streaming", "Fortnite"],
+  //   "USA"
+  // ),
+  // createData(
+  //   "Coach Jeremy",
+  //   210000,
+  //   181000,
+  //   37342,
+  //   43124,
+  //   ["Ice Hockey", "Sports Coaching"],
+  //   "Canada"
+  // ),
+  // createData(
+  //   "Dan Abramov",
+  //   2620,
+  //   160000,
+  //   242031,
+  //   0,
+  //   ["Programming", "Coding", "Javascript"],
+  //   "UK"
+  // ),
+  // createData(
+  //   "Cristiano Ronaldo",
+  //   120000000,
+  //   0,
+  //   2100000,
+  //   4342012,
+  //   ["Football (Soccer)", "Athletes"],
+  //   "USA"
+  // ),
+  // createData(
+  //   "Yung Lean",
+  //   35600,
+  //   21000,
+  //   0,
+  //   0,
+  //   ["Musician", "Rapper", "Fashion"],
+  //   "Sweden"
+  // ),
+  // createData(
+  //   "Yung Lean",
+  //   35600,
+  //   21000,
+  //   0,
+  //   0,
+  //   ["Musician", "Rapper", "Fashion"],
+  //   "Sweden"
+  // ),
+  // createData(
+  //   "Ninja",
+  //   12360,
+  //   15390000,
+  //   22524,
+  //   460000,
+  //   ["Gaming", "Streaming", "Fortnite"],
+  //   "USA"
+  // ),
+  // createData(
+  //   "Coach Jeremy",
+  //   210000,
+  //   181000,
+  //   37342,
+  //   43124,
+  //   ["Ice Hockey", "Sports Coaching"],
+  //   "Canada"
+  // ),
+  // createData(
+  //   "Dan Abramov",
+  //   2620,
+  //   160000,
+  //   242031,
+  //   0,
+  //   ["Programming", "Coding", "Javascript"],
+  //   "UK"
+  // ),
+  // createData(
+  //   "Cristiano Ronaldo",
+  //   120000000,
+  //   0,
+  //   2100000,
+  //   4342012,
+  //   ["Football (Soccer)", "Athletes"],
+  //   "USA"
+  // ),
+  // createData(
+  //   "Yung Lean",
+  //   35600,
+  //   21000,
+  //   0,
+  //   0,
+  //   ["Musician", "Rapper", "Fashion"],
+  //   "Sweden"
+  // ),
+  // createData(
+  //   "Yung Lean",
+  //   35600,
+  //   21000,
+  //   0,
+  //   0,
+  //   ["Musician", "Rapper", "Fashion"],
+  //   "Sweden"
+  // ),
+  // createData(
+  //   "Yung Lean",
+  //   35600,
+  //   21000,
+  //   0,
+  //   0,
+  //   ["Musician", "Rapper", "Fashion"],
+  //   "Sweden"
+  // ),
 
-  createData("Ninja", 12360, 15390000, 22524, 460000, [
-    "Gaming",
-    "Streaming",
-    "Fortnite",
-  ]),
-  createData("Coach Jeremy", 210000, 181000, 37342, 43124, [
-    "Ice Hockey",
-    "Sports Coaching",
-  ]),
-  createData("Dan Abramov", 2620, 160000, 242031, 0, [
-    "Programming",
-    "Coding",
-    "Javascript",
-  ]),
-  createData("Cristiano Ronaldo", 120000000, 0, 2100000, 4342012, [
-    "Football (Soccer)",
-    "Athletes",
-  ]),
-  createData("Ninja", 12360, 15390000, 22524, 460000, [
-    "Gaming",
-    "Streaming",
-    "Fortnite",
-  ]),
-  createData("Coach Jeremy", 210000, 181000, 37342, 43124, [
-    "Ice Hockey",
-    "Sports Coaching",
-  ]),
-  createData("Dan Abramov", 2620, 160000, 242031, 0, [
-    "Programming",
-    "Coding",
-    "Javascript",
-  ]),
-  createData("Cristiano Ronaldo", 120000000, 0, 2100000, 4342012, [
-    "Football (Soccer)",
-    "Athletes",
-  ]),
-  createData("Yung Lean", 35600, 21000, 0, 0, [
-    "Musician",
-    "Rapper",
-    "Fashion",
-  ]),
-  createData("Yung Lean", 35600, 21000, 0, 0, [
-    "Musician",
-    "Rapper",
-    "Fashion",
-  ]),
-  createData("Yung Lean", 35600, 21000, 0, 0, [
-    "Musician",
-    "Rapper",
-    "Fashion",
-  ]),
-  createData("Ninja", 12360, 15390000, 22524, 460000, [
-    "Gaming",
-    "Streaming",
-    "Fortnite",
-  ]),
-  createData("Coach Jeremy", 210000, 181000, 37342, 43124, [
-    "Ice Hockey",
-    "Sports Coaching",
-  ]),
-  createData("Dan Abramov", 2620, 160000, 242031, 0, [
-    "Programming",
-    "Coding",
-    "Javascript",
-  ]),
-  createData("Cristiano Ronaldo", 120000000, 0, 2100000, 4342012, [
-    "Football (Soccer)",
-    "Athletes",
-  ]),
-  createData("Yung Lean", 35600, 21000, 0, 0, [
-    "Musician",
-    "Rapper",
-    "Fashion",
-  ]),
+  // createData(
+  //   "Ninja",
+  //   12360,
+  //   15390000,
+  //   22524,
+  //   460000,
+  //   ["Gaming", "Streaming", "Fortnite"],
+  //   "USA"
+  // ),
+  // createData(
+  //   "Coach Jeremy",
+  //   210000,
+  //   181000,
+  //   37342,
+  //   43124,
+  //   ["Ice Hockey", "Sports Coaching"],
+  //   "Canada"
+  // ),
+  // createData(
+  //   "Dan Abramov",
+  //   2620,
+  //   160000,
+  //   242031,
+  //   0,
+  //   ["Programming", "Coding", "Javascript"],
+  //   "UK"
+  // ),
+  // createData(
+  //   "Cristiano Ronaldo",
+  //   120000000,
+  //   0,
+  //   2100000,
+  //   4342012,
+  //   ["Football (Soccer)", "Athletes"],
+  //   "USA"
+  // ),
+  // createData(
+  //   "Ninja",
+  //   12360,
+  //   15390000,
+  //   22524,
+  //   460000,
+  //   ["Gaming", "Streaming", "Fortnite"],
+  //   "USA"
+  // ),
+  // createData(
+  //   "Coach Jeremy",
+  //   210000,
+  //   181000,
+  //   37342,
+  //   43124,
+  //   ["Ice Hockey", "Sports Coaching"],
+  //   "Canada"
+  // ),
+  // createData(
+  //   "Dan Abramov",
+  //   2620,
+  //   160000,
+  //   242031,
+  //   0,
+  //   ["Programming", "Coding", "Javascript"],
+  //   "UK"
+  // ),
+  // createData(
+  //   "Cristiano Ronaldo",
+  //   120000000,
+  //   0,
+  //   2100000,
+  //   4342012,
+  //   ["Football (Soccer)", "Athletes"],
+  //   "USA"
+  // ),
+  // createData(
+  //   "Yung Lean",
+  //   35600,
+  //   21000,
+  //   0,
+  //   0,
+  //   ["Musician", "Rapper", "Fashion"],
+  //   "Sweden"
+  // ),
+  // createData(
+  //   "Yung Lean",
+  //   35600,
+  //   21000,
+  //   0,
+  //   0,
+  //   ["Musician", "Rapper", "Fashion"],
+  //   "Sweden"
+  // ),
+  // createData(
+  //   "Yung Lean",
+  //   35600,
+  //   21000,
+  //   0,
+  //   0,
+  //   ["Musician", "Rapper", "Fashion"],
+  //   "Sweden"
+  // ),
+  // createData(
+  //   "Ninja",
+  //   12360,
+  //   15390000,
+  //   22524,
+  //   460000,
+  //   ["Gaming", "Streaming", "Fortnite"],
+  //   "USA"
+  // ),
+  // createData(
+  //   "Coach Jeremy",
+  //   210000,
+  //   181000,
+  //   37342,
+  //   43124,
+  //   ["Ice Hockey", "Sports Coaching"],
+  //   "Canada"
+  // ),
+  // createData(
+  //   "Dan Abramov",
+  //   2620,
+  //   160000,
+  //   242031,
+  //   0,
+  //   ["Programming", "Coding", "Javascript"],
+  //   "UK"
+  // ),
+  // createData(
+  //   "Cristiano Ronaldo",
+  //   120000000,
+  //   0,
+  //   2100000,
+  //   4342012,
+  //   ["Football (Soccer)", "Athletes"],
+  //   "Italy"
+  // ),
+  // createData(
+  //   "Yung Lean",
+  //   35600,
+  //   21000,
+  //   0,
+  //   0,
+  //   ["Musician", "Rapper", "Fashion"],
+  //   "Sweden"
+  // ),
 ]
 
 let filteredView = rows
@@ -207,7 +355,6 @@ function filterByTags(tags) {
   let filteredArray = rows.filter((row) => {
     for (let tag of row.tags) {
       if (tags.includes(tag)) {
-        console.log(tags, tag)
         return row
       }
     }
@@ -225,8 +372,10 @@ function instagramValueText(value) {
 }
 
 export default function IndexTable() {
+  const [filters, setFilters] = useState([])
+
+  const [tagSelect, setTagSelect] = useState("")
   const classes = useStyles()
-  console.log(filterByTags(["Fortnite"]))
   const [instagramFollowers, setInstagramFollowers] = useState([0, 10000000])
 
   function handleInstagramFollowersChange(e, newValue) {
@@ -239,9 +388,30 @@ export default function IndexTable() {
       Click to enter the profile of each influencer for more detailed analysis.
       <h3>Filters</h3>
       <label>Tags</label>
-      <input type="text" />
-      <label>Country</label>
-      <input type="text" />
+      {filters.map((tag) => (
+        <div>{tag}</div>
+      ))}
+      <input
+        type="text"
+        value={tagSelect}
+        onChange={(e) => setTagSelect(e.target.value)}
+      />
+      <button
+        onClick={() => {
+          setFilters([...filters, tagSelect])
+        }}
+      >
+        Add
+      </button>
+      <label>Countries</label>
+      <select>
+        <option>USA</option>
+        <option>United Kingdom</option>
+        <option>Canada</option>
+        <option>Brazil</option>
+        <option>Sweden</option>
+      </select>
+      <button>Add</button>
       <label>Language</label>
       <select>
         <option>English</option>
@@ -249,6 +419,7 @@ export default function IndexTable() {
         <option>French (Francais)</option>
         <option>Spanish (Espanol)</option>
       </select>
+      <button>Add</button>
       <label>Instagram Followers (000's)</label>
       <Slider
         value={instagramFollowers}
@@ -269,7 +440,7 @@ export default function IndexTable() {
       <input type="range" min="0" max="100000000" step="2500" />{" "}
       <label>Facebook Followers</label>
       <input type="range" min="0" max="100000000" step="2500" />
-      <button>Clear All Filters</button>
+      <button onClick={() => clearAllFilters()}>Clear All Filters</button>
       <TableContainer component={Paper} className="container">
         <Table className={classes.table} stickyHeader aria-label="sticky table">
           <TableHead>
@@ -280,6 +451,7 @@ export default function IndexTable() {
               <TableCell align="right">Twitter Followers</TableCell>
               <TableCell align="right">TikTok Followers</TableCell>
               <TableCell align="right">Tags</TableCell>
+              <TableCell align="right">Country</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -293,6 +465,7 @@ export default function IndexTable() {
                 <TableCell align="right">{row.twitter}</TableCell>
                 <TableCell align="right">{row.tiktok}</TableCell>
                 <TableCell align="right">{createTagList(row.tags)}</TableCell>
+                <TableCell align="right">{row.country}</TableCell>
               </TableRow>
             ))}
           </TableBody>
