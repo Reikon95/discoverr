@@ -355,7 +355,6 @@ function filterByTags(tags) {
   let filteredArray = rows.filter((row) => {
     for (let tag of row.tags) {
       if (tags.includes(tag)) {
-        console.log(tags, tag)
         return row
       }
     }
@@ -376,7 +375,6 @@ export default function IndexTable() {
   const [filters, setFilters] = useState([])
 
   const [tagSelect, setTagSelect] = useState("")
-  console.log(tagSelect)
   const classes = useStyles()
   const [instagramFollowers, setInstagramFollowers] = useState([0, 10000000])
 
@@ -400,7 +398,6 @@ export default function IndexTable() {
       />
       <button
         onClick={() => {
-          console.log(filters)
           setFilters([...filters, tagSelect])
         }}
       >
