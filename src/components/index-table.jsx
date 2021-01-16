@@ -108,241 +108,6 @@ const rows = [
   //   ["Programming", "Coding", "Javascript"],
   //   "UK"
   // ),
-  // createData(
-  //   "Cristiano Ronaldo",
-  //   120000000,
-  //   0,
-  //   2100000,
-  //   4342012,
-  //   ["Football (Soccer)", "Athletes"],
-  //   "USA"
-  // ),
-  // createData(
-  //   "Yung Lean",
-  //   35600,
-  //   21000,
-  //   0,
-  //   0,
-  //   ["Musician", "Rapper", "Fashion"],
-  //   "Sweden"
-  // ),
-  // createData(
-  //   "Yung Lean",
-  //   35600,
-  //   21000,
-  //   0,
-  //   0,
-  //   ["Musician", "Rapper", "Fashion"],
-  //   "Sweden"
-  // ),
-  // createData(
-  //   "Ninja",
-  //   12360,
-  //   15390000,
-  //   22524,
-  //   460000,
-  //   ["Gaming", "Streaming", "Fortnite"],
-  //   "USA"
-  // ),
-  // createData(
-  //   "Coach Jeremy",
-  //   210000,
-  //   181000,
-  //   37342,
-  //   43124,
-  //   ["Ice Hockey", "Sports Coaching"],
-  //   "Canada"
-  // ),
-  // createData(
-  //   "Dan Abramov",
-  //   2620,
-  //   160000,
-  //   242031,
-  //   0,
-  //   ["Programming", "Coding", "Javascript"],
-  //   "UK"
-  // ),
-  // createData(
-  //   "Cristiano Ronaldo",
-  //   120000000,
-  //   0,
-  //   2100000,
-  //   4342012,
-  //   ["Football (Soccer)", "Athletes"],
-  //   "USA"
-  // ),
-  // createData(
-  //   "Yung Lean",
-  //   35600,
-  //   21000,
-  //   0,
-  //   0,
-  //   ["Musician", "Rapper", "Fashion"],
-  //   "Sweden"
-  // ),
-  // createData(
-  //   "Yung Lean",
-  //   35600,
-  //   21000,
-  //   0,
-  //   0,
-  //   ["Musician", "Rapper", "Fashion"],
-  //   "Sweden"
-  // ),
-  // createData(
-  //   "Yung Lean",
-  //   35600,
-  //   21000,
-  //   0,
-  //   0,
-  //   ["Musician", "Rapper", "Fashion"],
-  //   "Sweden"
-  // ),
-
-  // createData(
-  //   "Ninja",
-  //   12360,
-  //   15390000,
-  //   22524,
-  //   460000,
-  //   ["Gaming", "Streaming", "Fortnite"],
-  //   "USA"
-  // ),
-  // createData(
-  //   "Coach Jeremy",
-  //   210000,
-  //   181000,
-  //   37342,
-  //   43124,
-  //   ["Ice Hockey", "Sports Coaching"],
-  //   "Canada"
-  // ),
-  // createData(
-  //   "Dan Abramov",
-  //   2620,
-  //   160000,
-  //   242031,
-  //   0,
-  //   ["Programming", "Coding", "Javascript"],
-  //   "UK"
-  // ),
-  // createData(
-  //   "Cristiano Ronaldo",
-  //   120000000,
-  //   0,
-  //   2100000,
-  //   4342012,
-  //   ["Football (Soccer)", "Athletes"],
-  //   "USA"
-  // ),
-  // createData(
-  //   "Ninja",
-  //   12360,
-  //   15390000,
-  //   22524,
-  //   460000,
-  //   ["Gaming", "Streaming", "Fortnite"],
-  //   "USA"
-  // ),
-  // createData(
-  //   "Coach Jeremy",
-  //   210000,
-  //   181000,
-  //   37342,
-  //   43124,
-  //   ["Ice Hockey", "Sports Coaching"],
-  //   "Canada"
-  // ),
-  // createData(
-  //   "Dan Abramov",
-  //   2620,
-  //   160000,
-  //   242031,
-  //   0,
-  //   ["Programming", "Coding", "Javascript"],
-  //   "UK"
-  // ),
-  // createData(
-  //   "Cristiano Ronaldo",
-  //   120000000,
-  //   0,
-  //   2100000,
-  //   4342012,
-  //   ["Football (Soccer)", "Athletes"],
-  //   "USA"
-  // ),
-  // createData(
-  //   "Yung Lean",
-  //   35600,
-  //   21000,
-  //   0,
-  //   0,
-  //   ["Musician", "Rapper", "Fashion"],
-  //   "Sweden"
-  // ),
-  // createData(
-  //   "Yung Lean",
-  //   35600,
-  //   21000,
-  //   0,
-  //   0,
-  //   ["Musician", "Rapper", "Fashion"],
-  //   "Sweden"
-  // ),
-  // createData(
-  //   "Yung Lean",
-  //   35600,
-  //   21000,
-  //   0,
-  //   0,
-  //   ["Musician", "Rapper", "Fashion"],
-  //   "Sweden"
-  // ),
-  // createData(
-  //   "Ninja",
-  //   12360,
-  //   15390000,
-  //   22524,
-  //   460000,
-  //   ["Gaming", "Streaming", "Fortnite"],
-  //   "USA"
-  // ),
-  // createData(
-  //   "Coach Jeremy",
-  //   210000,
-  //   181000,
-  //   37342,
-  //   43124,
-  //   ["Ice Hockey", "Sports Coaching"],
-  //   "Canada"
-  // ),
-  // createData(
-  //   "Dan Abramov",
-  //   2620,
-  //   160000,
-  //   242031,
-  //   0,
-  //   ["Programming", "Coding", "Javascript"],
-  //   "UK"
-  // ),
-  // createData(
-  //   "Cristiano Ronaldo",
-  //   120000000,
-  //   0,
-  //   2100000,
-  //   4342012,
-  //   ["Football (Soccer)", "Athletes"],
-  //   "Italy"
-  // ),
-  // createData(
-  //   "Yung Lean",
-  //   35600,
-  //   21000,
-  //   0,
-  //   0,
-  //   ["Musician", "Rapper", "Fashion"],
-  //   "Sweden"
-  // ),
 ]
 
 let filteredView = rows
@@ -373,6 +138,7 @@ function instagramValueText(value) {
 
 export default function IndexTable() {
   const [filters, setFilters] = useState([])
+  const [languages, setLanguages] = useState([])
 
   const [tagSelect, setTagSelect] = useState("")
   const classes = useStyles()
@@ -382,6 +148,15 @@ export default function IndexTable() {
     setInstagramFollowers(newValue)
   }
 
+  function removeTag(tag) {
+    setFilters(
+      filters.filter((existingTag) => {
+        if (tag !== existingTag) {
+          return tag
+        }
+      })
+    )
+  }
   return (
     <>
       <h1>Available Influencers</h1>
@@ -389,7 +164,12 @@ export default function IndexTable() {
       <h3>Filters</h3>
       <label>Tags</label>
       {filters.map((tag) => (
-        <div>{tag}</div>
+        <div className="tag-filter">
+          {tag}{" "}
+          <div className="cancel-button" onClick={() => removeTag(tag)}>
+            X
+          </div>
+        </div>
       ))}
       <input
         type="text"
