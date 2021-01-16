@@ -5,3 +5,14 @@
 .range-slider {
   width: 300px !important;
 }
+
+.tag-filter {
+  background-color: black;
+  color: white;
+  display: flex;
+}
+
+.cancel-button {
+  padding-left: 1px;
+  cursor: pointer;
+}
