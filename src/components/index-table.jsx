@@ -99,15 +99,6 @@ const rows = [
   //   ["Ice Hockey", "Sports Coaching"],
   //   "Canada"
   // ),
-  // createData(
-  //   "Dan Abramov",
-  //   2620,
-  //   160000,
-  //   242031,
-  //   0,
-  //   ["Programming", "Coding", "Javascript"],
-  //   "UK"
-  // ),
 ]
 
 let filteredView = rows
@@ -139,10 +130,12 @@ function instagramValueText(value) {
 export default function IndexTable() {
   const [filters, setFilters] = useState([])
   const [languages, setLanguages] = useState([])
+  const [countires, setCountries] = useState([])
 
   const [tagSelect, setTagSelect] = useState("")
   const classes = useStyles()
   const [instagramFollowers, setInstagramFollowers] = useState([0, 10000000])
+  const [youtubeSubscribers, setYoutubeSubscribers] = useState([0, 10000000])
 
   function handleInstagramFollowersChange(e, newValue) {
     setInstagramFollowers(newValue)
@@ -162,7 +155,7 @@ export default function IndexTable() {
       <h1>Available Influencers</h1>
       Click to enter the profile of each influencer for more detailed analysis.
       <h3>Filters</h3>
-      <label>Tags</label>
+      <h5>Tags</h5>
       {filters.map((tag) => (
         <div className="tag-filter">
           {tag}{" "}
@@ -171,6 +164,25 @@ export default function IndexTable() {
           </div>
         </div>
       ))}
+      <h5>Countries</h5>
+      {filters.map((tag) => (
+        <div className="tag-filter">
+          {tag}{" "}
+          <div className="cancel-button" onClick={() => removeTag(tag)}>
+            X
+          </div>
+        </div>
+      ))}
+      <h5>Languages</h5>
+      {filters.map((tag) => (
+        <div className="tag-filter">
+          {tag}{" "}
+          <div className="cancel-button" onClick={() => removeTag(tag)}>
+            X
+          </div>
+        </div>
+      ))}
+      <label>Tags</label>
       <input
         type="text"
         value={tagSelect}
