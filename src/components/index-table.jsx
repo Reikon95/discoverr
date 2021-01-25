@@ -8,6 +8,8 @@ import TableHead from "@material-ui/core/TableHead"
 import TableRow from "@material-ui/core/TableRow"
 import Paper from "@material-ui/core/Paper"
 import Typography from "@material-ui/core/Typography"
+import TableSortLabel from "@material-ui/core/TableSortLabel"
+
 import Slider from "@material-ui/core/Slider"
 
 import "./index-table.css"
@@ -90,16 +92,17 @@ const rows = [
   //   ["Gaming", "Streaming", "Fortnite"],
   //   "USA"
   // ),
-  // createData(
-  //   "Coach Jeremy",
-  //   210000,
-  //   181000,
-  //   37342,
-  //   43124,
-  //   ["Ice Hockey", "Sports Coaching"],
-  //   "Canada"
-  // ),
 ]
+
+function stableSort(array, comparator) {
+  const stabilizedThis = array.map((el, index) => [el, index])
+  stabilizedThis.sort((a, b) => {
+    const order = comparator(a[0], b[0])
+    if (order !== 0) return order
+    return a[1] - b[1]
+  })
+  return stabilizedThis.map((el) => el[0])
+}
 
 let filteredView = rows
 
@@ -127,15 +130,29 @@ function instagramValueText(value) {
   return `${value}K`
 }
 
-export default function IndexTable() {
+export default function IndexTable(props) {
+  const {
+    classes,
+    onSelectAllClick,
+    order,
+    orderBy,
+    numSelected,
+    rowCount,
+    onRequestSort,
+  } = props
+
   const [filters, setFilters] = useState([])
   const [languages, setLanguages] = useState([])
   const [countires, setCountries] = useState([])
 
   const [tagSelect, setTagSelect] = useState("")
-  const classes = useStyles()
+  const styleClasses = useStyles()
   const [instagramFollowers, setInstagramFollowers] = useState([0, 10000000])
   const [youtubeSubscribers, setYoutubeSubscribers] = useState([0, 10000000])
+
+  const createSortHandler = (property) => (event) => {
+    onRequestSort(event, property)
+  }
 
   function handleInstagramFollowersChange(e, newValue) {
     setInstagramFollowers(newValue)
@@ -150,6 +167,22 @@ export default function IndexTable() {
       })
     )
   }
+
+  const headCells = [
+    { id: "name", numeric: false, disablePadding: true, label: "Name" },
+    {
+      id: "instagram",
+      numeric: true,
+      disablePadding: false,
+      label: "Instagram",
+    },
+    { id: "youtube", numeric: true, disablePadding: false, label: "Youtube" },
+    { id: "twitter", numeric: true, disablePadding: false, label: "Twitter" },
+    { id: "tiktok", numeric: true, disablePadding: false, label: "TikTok" },
+    { id: "tags", numeric: false, disablePadding: false, label: "Tags" },
+    { id: "country", numeric: false, disablePadding: false, label: "Country" },
+  ]
+
   return (
     <>
       <h1>Available Influencers</h1>
@@ -234,16 +267,36 @@ export default function IndexTable() {
       <input type="range" min="0" max="100000000" step="2500" />
       <button onClick={() => clearAllFilters()}>Clear All Filters</button>
       <TableContainer component={Paper} className="container">
-        <Table className={classes.table} stickyHeader aria-label="sticky table">
+        <Table
+          className={styleClasses.table}
+          stickyHeader
+          aria-label="sticky table"
+        >
           <TableHead>
             <TableRow>
-              <TableCell>Influencer</TableCell>
-              <TableCell align="right">Instagram Followers</TableCell>
-              <TableCell align="right">Youtube Subscribers</TableCell>
-              <TableCell align="right">Twitter Followers</TableCell>
-              <TableCell align="right">TikTok Followers</TableCell>
-              <TableCell align="right">Tags</TableCell>
-              <TableCell align="right">Country</TableCell>
+              {headCells.map((headCell) => (
+                <TableCell
+                  key={headCell.id}
+                  align={headCell.numeric ? "right" : "left"}
+                  padding={headCell.disablePadding ? "none" : "default"}
+                  sortDirection={orderBy === headCell.id ? order : false}
+                >
+                  <TableSortLabel
+                    active={orderBy === headCell.id}
+                    direction={orderBy === headCell.id ? order : "asc"}
+                    onClick={createSortHandler(headCell.id)}
+                  >
+                    {headCell.label}
+                    {orderBy === headCell.id ? (
+                      <span className={classes.visuallyHidden}>
+                        {order === "desc"
+                          ? "sorted descending"
+                          : "sorted ascending"}
+                      </span>
+                    ) : null}
+                  </TableSortLabel>
+                </TableCell>
+              ))}
             </TableRow>
           </TableHead>
           <TableBody>

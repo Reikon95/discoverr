@@ -10,7 +10,7 @@ import Button from "@material-ui/core/Button"
 import IconButton from "@material-ui/core/IconButton"
 import MenuIcon from "@material-ui/icons/Menu"
 import ProfilePage from "./components/profile-page/profile-page"
-
+import EnhancedTable from "./components/index-table-2.jsx"
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -51,7 +51,7 @@ function App() {
             renders the first one that matches the current URL. */}
           <Switch>
             <Route path="/table">
-              <IndexTable />
+              <EnhancedTable />
             </Route>
             <Route path="/ninja">
               <ProfilePage user="Ninja" />
