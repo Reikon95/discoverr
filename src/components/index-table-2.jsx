@@ -1,4 +1,4 @@
-import React from "react"
+import { React, useState } from "react"
 import PropTypes from "prop-types"
 import clsx from "clsx"
 import { lighten, makeStyles } from "@material-ui/core/styles"
@@ -20,6 +20,7 @@ import FormControlLabel from "@material-ui/core/FormControlLabel"
 import Switch from "@material-ui/core/Switch"
 import DeleteIcon from "@material-ui/icons/Delete"
 import FilterListIcon from "@material-ui/icons/FilterList"
+import Slider from "@material-ui/core/Slider"
 
 function createData(name, instagram, youtube, twitter, tiktok, tags, country) {
   return { name, instagram, youtube, twitter, tiktok, tags, country }
@@ -223,7 +224,7 @@ const EnhancedTableToolbar = (props) => {
           id="tableTitle"
           component="div"
         >
-          Nutrition
+          Influencer Database
         </Typography>
       )}
 
@@ -273,13 +274,57 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 export default function EnhancedTable() {
+  let filteredView = rows
+
+  function filterByTags(tags) {
+    let filteredArray = rows.filter((row) => {
+      for (let tag of row.tags) {
+        if (tags.includes(tag)) {
+          return row
+        }
+      }
+    })
+    filteredView = filteredArray
+    return
+  }
+
+  function clearAllFilters() {
+    filteredView = rows
+  }
+
+  function instagramValueText(value) {
+    return `${value}K`
+  }
+
+  function removeTag(tag) {
+    setFilters(
+      filters.filter((existingTag) => {
+        if (tag !== existingTag) {
+          return tag
+        }
+      })
+    )
+  }
+
+  const [filters, setFilters] = useState([])
+  const [languages, setLanguages] = useState([])
+  const [countires, setCountries] = useState([])
+
+  const [tagSelect, setTagSelect] = useState("")
+  const [instagramFollowers, setInstagramFollowers] = useState([0, 10000000])
+  const [youtubeSubscribers, setYoutubeSubscribers] = useState([0, 10000000])
+
   const classes = useStyles()
-  const [order, setOrder] = React.useState("asc")
-  const [orderBy, setOrderBy] = React.useState("calories")
-  const [selected, setSelected] = React.useState([])
-  const [page, setPage] = React.useState(0)
-  const [dense, setDense] = React.useState(false)
-  const [rowsPerPage, setRowsPerPage] = React.useState(5)
+  const [order, setOrder] = useState("asc")
+  const [orderBy, setOrderBy] = useState("calories")
+  const [selected, setSelected] = useState([])
+  const [page, setPage] = useState(0)
+  const [dense, setDense] = useState(false)
+  const [rowsPerPage, setRowsPerPage] = useState(5)
+
+  function handleInstagramFollowersChange(e, newValue) {
+    setInstagramFollowers(newValue)
+  }
 
   const handleRequestSort = (event, property) => {
     const isAsc = orderBy === property && order === "asc"
@@ -335,87 +380,170 @@ export default function EnhancedTable() {
     rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage)
 
   return (
-    <div className={classes.root}>
-      <Paper className={classes.paper}>
-        <EnhancedTableToolbar numSelected={selected.length} />
-        <TableContainer>
-          <Table
-            className={classes.table}
-            aria-labelledby="tableTitle"
-            size={dense ? "small" : "medium"}
-            aria-label="enhanced table"
-          >
-            <EnhancedTableHead
-              classes={classes}
-              numSelected={selected.length}
-              order={order}
-              orderBy={orderBy}
-              onSelectAllClick={handleSelectAllClick}
-              onRequestSort={handleRequestSort}
-              rowCount={rows.length}
-            />
-            <TableBody>
-              {stableSort(rows, getComparator(order, orderBy))
-                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                .map((row, index) => {
-                  const isItemSelected = isSelected(row.name)
-                  const labelId = `enhanced-table-checkbox-${index}`
-
-                  return (
-                    <TableRow
-                      hover
-                      onClick={(event) => handleClick(event, row.name)}
-                      role="checkbox"
-                      aria-checked={isItemSelected}
-                      tabIndex={-1}
-                      key={row.name}
-                      selected={isItemSelected}
-                    >
-                      <TableCell padding="checkbox">
-                        <Checkbox
-                          checked={isItemSelected}
-                          inputProps={{ "aria-labelledby": labelId }}
-                        />
-                      </TableCell>
-                      <TableCell
-                        component="th"
-                        id={labelId}
-                        scope="row"
-                        padding="none"
-                      >
-                        {row.name}
-                      </TableCell>
-                      <TableCell align="right">{row.instagram}</TableCell>
-                      <TableCell align="right">{row.youtube}</TableCell>
-                      <TableCell align="right">{row.twitter}</TableCell>
-                      <TableCell align="right">{row.tiktok}</TableCell>
-                      <TableCell align="right">{row.tags}</TableCell>
-                      <TableCell align="right">{row.country}</TableCell>
-                    </TableRow>
-                  )
-                })}
-              {emptyRows > 0 && (
-                <TableRow style={{ height: (dense ? 33 : 53) * emptyRows }}>
-                  <TableCell colSpan={6} />
-                </TableRow>
-              )}
-            </TableBody>
-          </Table>
-        </TableContainer>
-        <TablePagination
-          rowsPerPageOptions={[5, 10, 25]}
-          component="div"
-          count={rows.length}
-          rowsPerPage={rowsPerPage}
-          page={page}
-          onChangePage={handleChangePage}
-          onChangeRowsPerPage={handleChangeRowsPerPage}
-        />
-      </Paper>
-      <FormControlLabel
-        control={<Switch checked={dense} onChange={handleChangeDense} />}
-        label="Dense padding"
+    <>
+      <h1>Available Influencers</h1>
+      Click to enter the profile of each influencer for more detailed analysis.
+      <h3>Filters</h3>
+      <h5>Tags</h5>
+      {filters.map((tag) => (
+        <div className="tag-filter">
+          {tag}{" "}
+          <div className="cancel-button" onClick={() => removeTag(tag)}>
+            X
+          </div>
+        </div>
+      ))}
+      <h5>Countries</h5>
+      {filters.map((tag) => (
+        <div className="tag-filter">
+          {tag}{" "}
+          <div className="cancel-button" onClick={() => removeTag(tag)}>
+            X
+          </div>
+        </div>
+      ))}
+      <h5>Languages</h5>
+      {filters.map((tag) => (
+        <div className="tag-filter">
+          {tag}{" "}
+          <div className="cancel-button" onClick={() => removeTag(tag)}>
+            X
+          </div>
+        </div>
+      ))}
+      <label>Tags</label>
+      <input
+        type="text"
+        value={tagSelect}
+        onChange={(e) => setTagSelect(e.target.value)}
       />
-    </div>
+      <button
+        onClick={() => {
+          setFilters([...filters, tagSelect])
+        }}
+      >
+        Add
+      </button>
+      <label>Countries</label>
+      <select>
+        <option>USA</option>
+        <option>United Kingdom</option>
+        <option>Canada</option>
+        <option>Brazil</option>
+        <option>Sweden</option>
+      </select>
+      <button>Add</button>
+      <label>Language</label>
+      <select>
+        <option>English</option>
+        <option>German (Deustch)</option>
+        <option>French (Francais)</option>
+        <option>Spanish (Espanol)</option>
+      </select>
+      <button>Add</button>
+      <label>Instagram Followers (000's)</label>
+      <Slider
+        value={instagramFollowers}
+        onChange={handleInstagramFollowersChange}
+        valueLabelDisplay="auto"
+        aria-labelledby="range-slider"
+        getAriaValueText={instagramValueText}
+        min={0}
+        max={1000}
+        step={1}
+        className="range-slider"
+      />
+      <label>Youtube Subscribers</label>
+      <input type="range" min="0" max="100000000" step="2500" />{" "}
+      <label>Twitter Followers</label>
+      <input type="range" min="0" max="100000000" step="2500" />{" "}
+      <label>TikTok Followers</label>
+      <input type="range" min="0" max="100000000" step="2500" />{" "}
+      <label>Facebook Followers</label>
+      <input type="range" min="0" max="100000000" step="2500" />
+      <button onClick={() => clearAllFilters()}>Clear All Filters</button>
+      <div className={classes.root}>
+        <Paper className={classes.paper}>
+          <EnhancedTableToolbar numSelected={selected.length} />
+          <TableContainer>
+            <Table
+              className={classes.table}
+              aria-labelledby="tableTitle"
+              size={dense ? "small" : "medium"}
+              aria-label="enhanced table"
+            >
+              <EnhancedTableHead
+                classes={classes}
+                numSelected={selected.length}
+                order={order}
+                orderBy={orderBy}
+                onSelectAllClick={handleSelectAllClick}
+                onRequestSort={handleRequestSort}
+                rowCount={rows.length}
+              />
+              <TableBody>
+                {stableSort(rows, getComparator(order, orderBy))
+                  .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                  .map((row, index) => {
+                    const isItemSelected = isSelected(row.name)
+                    const labelId = `enhanced-table-checkbox-${index}`
+
+                    return (
+                      <TableRow
+                        hover
+                        onClick={(event) => handleClick(event, row.name)}
+                        role="checkbox"
+                        aria-checked={isItemSelected}
+                        tabIndex={-1}
+                        key={row.name}
+                        selected={isItemSelected}
+                      >
+                        <TableCell padding="checkbox">
+                          <Checkbox
+                            checked={isItemSelected}
+                            inputProps={{ "aria-labelledby": labelId }}
+                          />
+                        </TableCell>
+                        <TableCell
+                          component="th"
+                          id={labelId}
+                          scope="row"
+                          padding="none"
+                        >
+                          {row.name}
+                        </TableCell>
+                        <TableCell align="right">{row.instagram}</TableCell>
+                        <TableCell align="right">{row.youtube}</TableCell>
+                        <TableCell align="right">{row.twitter}</TableCell>
+                        <TableCell align="right">{row.tiktok}</TableCell>
+                        <TableCell align="right">{row.tags}</TableCell>
+                        <TableCell align="right">{row.country}</TableCell>
+                      </TableRow>
+                    )
+                  })}
+                {emptyRows > 0 && (
+                  <TableRow style={{ height: (dense ? 33 : 53) * emptyRows }}>
+                    <TableCell colSpan={6} />
+                  </TableRow>
+                )}
+              </TableBody>
+            </Table>
+          </TableContainer>
+          <TablePagination
+            rowsPerPageOptions={[5, 10, 25]}
+            component="div"
+            count={rows.length}
+            rowsPerPage={rowsPerPage}
+            page={page}
+            onChangePage={handleChangePage}
+            onChangeRowsPerPage={handleChangeRowsPerPage}
+          />
+        </Paper>
+        <FormControlLabel
+          control={<Switch checked={dense} onChange={handleChangeDense} />}
+          label="Dense padding"
+        />
+      </div>
+    </>
   )
 }
