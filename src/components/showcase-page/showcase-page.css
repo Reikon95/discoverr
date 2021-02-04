@@ -1,0 +1,13 @@
+.deals-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  background-color: gray;
+  justify-items: center;
+}
+
+.item {
+  background-color: yellow;
+  height: 10vh;
+  width: 20vh;
+  margin-top: 1vh;
+}
