@@ -1,5 +1,6 @@
 import "./App.css"
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom"
+import ShowcasePage from "./components/showcase-page/showcase-page.jsx"
 import { makeStyles } from "@material-ui/core/styles"
 import AppBar from "@material-ui/core/AppBar"
 import Toolbar from "@material-ui/core/Toolbar"
@@ -37,7 +38,7 @@ function App() {
               <MenuIcon />
             </IconButton>
             <Typography variant="h6" className={classes.title}>
-              GetInfluential
+              Discoverr
             </Typography>
             <Button color="inherit">Logout</Button>
           </Toolbar>
@@ -53,6 +54,9 @@ function App() {
             </Route>
             <Route path="/ninja">
               <ProfilePage user="Ninja" />
+            </Route>
+            <Route path="/showcase">
+              <ShowcasePage name="Cameron" />
             </Route>
             <Route path="/">
               <Home />

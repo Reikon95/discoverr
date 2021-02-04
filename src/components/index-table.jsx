@@ -307,6 +307,13 @@ export default function EnhancedTable() {
   }
 
   const [filters, setFilters] = useState([])
+  const [centralFilters, setCentralFilters] = useState({
+    tags: [],
+    countries: [],
+    languages: [],
+    instagram: { min: 0, max: 10000000 },
+  })
+
   const [languages, setLanguages] = useState([])
   const [countires, setCountries] = useState([])
 
@@ -330,6 +337,7 @@ export default function EnhancedTable() {
     const isAsc = orderBy === property && order === "asc"
     setOrder(isAsc ? "desc" : "asc")
     setOrderBy(property)
+    console.log(centralFilters)
   }
 
   const handleSelectAllClick = (event) => {
