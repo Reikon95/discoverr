@@ -56,7 +56,20 @@ function App() {
               <ProfilePage user="Ninja" />
             </Route>
             <Route path="/showcase">
-              <ShowcasePage name="Cameron" />
+              <ShowcasePage
+                name="Cristiano Ronaldo"
+                deals={[
+                  { name: "Macron", offer: "10% off first purchase" },
+                  { name: "Canterbury", offer: "15% off subscription" },
+                  { name: "Nike", offer: "Free Socks" },
+                  { name: "Adidas", offer: "Win an Arsenal Shirt" },
+                  { name: "Underarmour", offer: "25% off first purchase" },
+                  { name: "Warrior", offer: "50% off first three purchases" },
+                  { name: "CCM", offer: "Win a free stick" },
+                  { name: "Puma", offer: "20% extra off all sale items" },
+                  { name: "Fila", offer: "15% off jackets" },
+                ]}
+              />
             </Route>
             <Route path="/">
               <Home />
