@@ -1,17 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+* {
+  font-family: 'Roboto', sans-serif;
+}
+
 .deals-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  background-color: gray;
   justify-items: center;
 }
 
 .item {
-  background-color: yellow;
-  height: 10vh;
+  border: solid black 1px;
+  height: 15vh;
   width: 20vh;
   margin-top: 1vh;
 }
 
 .deal-button {
   width: 50%;
+}
+
+.profile-image {
+  height: 20vh;
+  width: 20vh;
+  position: absolute;
+  top: 1;
+  left: 0;
+  margin-left: 5vw;
+  margin-top: -8vh;
+}
+.socials-list {
+  display: flex;
+margin-left: 35%;
+}
+
+.socials-list-item {
+  margin: 0 1vw;
+}
+
+.deal-button {
+  align-self: flex-end;
+  height: 7vh;
 }
