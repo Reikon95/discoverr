@@ -1,5 +1,4 @@
 import { React, useState } from "react"
-import { useTable } from "react-table"
 import "./showcase-page.css"
 export default function ShowcasePage({ name, deals }) {
   // todo - make columns 2 wide when on mobile
