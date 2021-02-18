@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
 * {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 .deals-container {
@@ -32,7 +32,7 @@
 }
 .socials-list {
   display: flex;
-margin-left: 35%;
+  margin-left: 35%;
 }
 
 .socials-list-item {
@@ -43,3 +43,13 @@ margin-left: 35%;
   align-self: flex-end;
   height: 7vh;
 }
+
+.deal-image {
+  height: 75%;
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
