@@ -7,18 +7,23 @@ import DialogActions from "@material-ui/core/DialogActions"
 import DialogContent from "@material-ui/core/DialogContent"
 import DialogContentText from "@material-ui/core/DialogContentText"
 import DialogTitle from "@material-ui/core/DialogTitle"
+
 import "./showcase-page.css"
 
 export default function ShowcasePage({ name, deals, socials }) {
   const [open, setOpen] = useState(false)
 
-  const handleClickOpen = () => {
+  const [activeDeal, setActiveDeal] = useState({name: '', offer: ''})
+
+  const handleClickOpen = (selectedDeal) => {
+    // setActiveDeal({name: selectedDeal.name, selectedDeal: deal.offer})
     setOpen(true)
   }
 
   const handleClose = () => {
     setOpen(false)
   }
+
 
   // todo - make columns 2 wide when on mobile
 
@@ -35,6 +40,7 @@ export default function ShowcasePage({ name, deals, socials }) {
       </p>
 
       <h4>Keep up with {name}</h4>
+
       <div className="socials-list">
         {socials.map((social) => {
           return (
@@ -58,9 +64,15 @@ export default function ShowcasePage({ name, deals, socials }) {
               <Button
                 variant="outlined"
                 color="primary"
-                onClick={handleClickOpen}
+                onClick={() => handleClickOpen(deal)}
                 className="deal-button"
               >
+                
+              {/* <Button
+                variant="outlined"
+                color="primary"
+                className="deal-button"
+              > */}
                 Get Deal!
               </Button>
             </div>
@@ -73,7 +85,7 @@ export default function ShowcasePage({ name, deals, socials }) {
         onClose={handleClose}
         aria-labelledby="form-dialog-title"
       >
-        <DialogTitle id="form-dialog-title">Cristiano's Nike Deal</DialogTitle>
+        <DialogTitle id="form-dialog-title">Cristiano's {activeDeal.name} Deal</DialogTitle>
 
         <DialogContent>
           <img
