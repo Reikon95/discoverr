@@ -16,7 +16,7 @@ export default function ShowcasePage({ name, deals, socials }) {
   const [activeDeal, setActiveDeal] = useState({name: '', offer: ''})
 
   const handleClickOpen = (selectedDeal) => {
-    // setActiveDeal({name: selectedDeal.name, selectedDeal: deal.offer})
+    setActiveDeal({name: selectedDeal.name, deal: selectedDeal.offer})
     setOpen(true)
   }
 
@@ -30,10 +30,10 @@ export default function ShowcasePage({ name, deals, socials }) {
   return (
     <>
       <h2>{name}'s Showcase</h2>
-      <img
+      {/* <img
         className="profile-image"
         src="https://i.insider.com/5e14563c855cc23d4d6f14f3?width=1136&format=jpeg"
-      />
+      /> */}
       <p>
         Support {name}'s content by getting offers from top brands - it's a win
         win!
@@ -63,16 +63,11 @@ export default function ShowcasePage({ name, deals, socials }) {
 
               <Button
                 variant="outlined"
-                color="primary"
                 onClick={() => handleClickOpen(deal)}
                 className="deal-button"
               >
                 
-              {/* <Button
-                variant="outlined"
-                color="primary"
-                className="deal-button"
-              > */}
+  
                 Get Deal!
               </Button>
             </div>
