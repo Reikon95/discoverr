@@ -1,6 +1,7 @@
 import "./App.css"
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom"
 import ShowcasePage from "./components/showcase-page/showcase-page.jsx"
+import SignUp from "./components/signup/signup"
 import { makeStyles } from "@material-ui/core/styles"
 import AppBar from "@material-ui/core/AppBar"
 import Toolbar from "@material-ui/core/Toolbar"
@@ -71,9 +72,13 @@ function App() {
                 socials={[{social: "Instagram", link: ''}, {social: "Facebook", link: ''}, {social: "Twitter", link: ''},{ social: "TikTok", link:''}]}
               />
             </Route>
+            <Route path="/signup">
+              <SignUp />
+            </Route>
             <Route path="/">
               <Home />
             </Route>
+
           </Switch>
         </div>
       </Router>
