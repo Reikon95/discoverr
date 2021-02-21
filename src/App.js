@@ -56,7 +56,7 @@ function App() {
             </Route>
             <Route path="/showcase">
               <ShowcasePage
-                name="Cristiano Ronaldo"
+                name="Barney Banks"
                 deals={[
                   { showDeal: false, name: "Macron", offer: "10% off first purchase" },
                   { showDeal: false, name: "Canterbury", offer: "15% off subscription" },
