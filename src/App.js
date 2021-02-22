@@ -47,7 +47,6 @@ function App() {
       </div>
       <Router>
         <div>
- 
           <Switch>
             <Route path="/table">
               <EnhancedTable />
@@ -59,26 +58,57 @@ function App() {
               <ShowcasePage
                 name="Barney Banks"
                 deals={[
-                  { showDeal: false, name: "Macron", offer: "10% off first purchase" },
-                  { showDeal: false, name: "Canterbury", offer: "15% off subscription" },
+                  {
+                    showDeal: false,
+                    name: "Macron",
+                    offer: "10% off first purchase",
+                  },
+                  {
+                    showDeal: false,
+                    name: "Canterbury",
+                    offer: "15% off subscription",
+                  },
                   { showDeal: false, name: "Nike", offer: "Free Socks" },
-                  { showDeal: false, name: "Adidas", offer: "Win an Arsenal Shirt" },
-                  { showDeal: false, name: "Underarmour", offer: "25% off first purchase" },
-                  { showDeal: false, name: "Warrior", offer: "50% off first three purchases" },
+                  {
+                    showDeal: false,
+                    name: "Adidas",
+                    offer: "Win an Arsenal Shirt",
+                  },
+                  {
+                    showDeal: false,
+                    name: "Underarmour",
+                    offer: "25% off first purchase",
+                  },
+                  {
+                    showDeal: false,
+                    name: "Warrior",
+                    offer: "50% off first three purchases",
+                  },
                   { showDeal: false, name: "CCM", offer: "Win a free stick" },
-                  { showDeal: false, name: "Puma", offer: "20% extra off all sale items" },
+                  {
+                    showDeal: false,
+                    name: "Puma",
+                    offer: "20% extra off all sale items",
+                  },
                   { showDeal: false, name: "Fila", offer: "15% off jackets" },
                 ]}
-                socials={[{social: "Instagram", link: ''}, {social: "Facebook", link: ''}, {social: "Twitter", link: ''},{ social: "TikTok", link:''}]}
+                socials={[
+                  { social: "Instagram", link: "" },
+                  { social: "Facebook", link: "" },
+                  { social: "Twitter", link: "" },
+                  { social: "TikTok", link: "" },
+                ]}
               />
             </Route>
             <Route path="/signup">
               <SignUp />
             </Route>
+            <Route path="/signup2">
+              <Home />
+            </Route>
             <Route path="/">
               <Home />
             </Route>
-
           </Switch>
         </div>
       </Router>
@@ -87,7 +117,12 @@ function App() {
 }
 
 function Home() {
-  return <h2>Home</h2>
+  return (
+    <div>
+      <h2>Home</h2>
+      <Link to="/signup">Sign Up</Link>
+    </div>
+  )
 }
 
 export default App

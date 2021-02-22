@@ -5,7 +5,7 @@ import Autocomplete from "@material-ui/lab/Autocomplete"
 import Button from "@material-ui/core/Button"
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom"
 
-export default function SignUp() {
+export default function SignUpOffers() {
   const top100Films = [
     { title: "The Shawshank Redemption", year: 1994 },
     { title: "The Godfather", year: 1972 },
@@ -115,37 +115,6 @@ export default function SignUp() {
   const companiesDB = [{ company: "The Protein Works", id: "0000001" }]
   return (
     <>
-      <h1>Welcome to Discoverr.</h1>
-      <p>
-        Tell us about you here. Remember, the more information the add, the
-        better your profile will be!
-      </p>
-      <InputLabel>Name: </InputLabel>
-      <Input type="text" placeholder="Your Name" required={true}></Input>
-      <p>Put the name you're best known by online</p>
-      <InputLabel>Age: </InputLabel>
-      <Input type="number" min="18"></Input>
-      <h2>Socials</h2>
-      <p>Fill out whichever public social media profiles you actively use.</p>
-      <p>
-        For the following, please input your username - we will do the magic :){" "}
-      </p>
-      <InputLabel>Instagram</InputLabel>
-      <Input type="text" placeholder="Instagram" required={true}></Input>
-      <InputLabel>Twitter</InputLabel>
-      <Input type="text" placeholder="Your Name" required={true}></Input>
-      <InputLabel>TikTok</InputLabel>
-      <Input type="text" placeholder="Your Name" required={true}></Input>
-      <InputLabel>Snap</InputLabel>
-      <Input type="text" placeholder="Your Name" required={true}></Input>
-      <InputLabel>Facebook</InputLabel>
-      <Input type="text" placeholder="Your Name" required={true}></Input>
-      <InputLabel>YouTube</InputLabel>
-      <Input type="text" placeholder="Your Name" required={true}></Input>
-      <p>Now let's move on to list your best offers for your audience!</p>
-      <Link to="/signup2">
-        <Button>Next Step</Button>
-      </Link>
       <h2>Current Offers</h2>
       <p>
         To get started, please list the current sponsorship offers you can pass
@@ -190,7 +159,7 @@ export default function SignUp() {
       <Input type="text" required={false}></Input>
       <InputLabel>Enter The Deal:</InputLabel>
       <Input type="text" required={true}></Input>
-      <p>Verify your identity</p>
+      <Button>Check out your profile!</Button>
     </>
   )
 }
