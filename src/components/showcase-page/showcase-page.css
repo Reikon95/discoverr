@@ -13,7 +13,7 @@
 
 .deal-button {
   width: 50%;
-  background: linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)  !important;
+  background: linear-gradient(45deg, #fe6b8b 30%, #ff8e53 90%) !important;
   color: white !important;
   align-self: flex-end;
   height: 7vh;
@@ -22,11 +22,6 @@
 .profile-image {
   height: 20vh;
   width: 20vh;
-  position: absolute;
-  top: 1;
-  left: 0;
-  margin-left: 5vw;
-  margin-top: -8vh;
 }
 .socials-list {
   display: flex;
@@ -38,7 +33,6 @@
   margin: 0 1vw;
 }
 
-
 .deal-image {
   height: 75%;
   width: 100%;
@@ -48,3 +42,8 @@ a {
   text-decoration: none;
 }
 
+.showcase-bio {
+  width: 50%;
+  background-color: #31afb4;
+  opacity: 70%;
+}

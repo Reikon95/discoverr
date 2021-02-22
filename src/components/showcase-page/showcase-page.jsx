@@ -7,16 +7,16 @@ import DialogActions from "@material-ui/core/DialogActions"
 import DialogContent from "@material-ui/core/DialogContent"
 import DialogContentText from "@material-ui/core/DialogContentText"
 import DialogTitle from "@material-ui/core/DialogTitle"
-
+import InstagramIcon from "@material-ui/icons/Instagram"
 import "./showcase-page.css"
 
-export default function ShowcasePage({ name, deals, socials }) {
+export default function ShowcasePage({ name, deals, socials, tags }) {
   const [open, setOpen] = useState(false)
 
-  const [activeDeal, setActiveDeal] = useState({name: '', offer: ''})
+  const [activeDeal, setActiveDeal] = useState({ name: "", offer: "" })
 
   const handleClickOpen = (selectedDeal) => {
-    setActiveDeal({name: selectedDeal.name, deal: selectedDeal.offer})
+    setActiveDeal({ name: selectedDeal.name, deal: selectedDeal.offer })
     setOpen(true)
   }
 
@@ -24,20 +24,27 @@ export default function ShowcasePage({ name, deals, socials }) {
     setOpen(false)
   }
 
-
   // todo - make columns 2 wide when on mobile
 
   return (
     <>
-      <h2>{name}'s Showcase</h2>
-      {/* <img
+      <h2>{name}</h2>
+      <div className="tags-list">
+        {tags.map((tag) => {
+          return " " + tag + ", "
+        })}
+      </div>
+      <img
         className="profile-image"
         src="https://i.insider.com/5e14563c855cc23d4d6f14f3?width=1136&format=jpeg"
-      /> */}
-      <p>
-        Support {name}'s content by getting offers from top brands - it's a win
-        win!
-      </p>
+      />
+
+      <div className="showcase-bio">
+        Hi Guys! Welcome to my Discoverr showcase. I am Barney Banks, a UK based
+        Content creator, gamer, model, and all round legend. Check out my
+        socials below as well as the discounts i have with my trusted brands
+        such as The Protein Works! Thank you for the support, BOSH!
+      </div>
 
       <h4>Keep up with {name}</h4>
 
@@ -47,6 +54,7 @@ export default function ShowcasePage({ name, deals, socials }) {
             <div className="socials-list-item">
               <a href={social.link} target="_blank" rel="noreferrer">
                 {social.social}
+                <InstagramIcon></InstagramIcon>
               </a>
             </div>
           )
@@ -66,8 +74,6 @@ export default function ShowcasePage({ name, deals, socials }) {
                 onClick={() => handleClickOpen(deal)}
                 className="deal-button"
               >
-                
-  
                 Get Deal!
               </Button>
             </div>
@@ -80,7 +86,9 @@ export default function ShowcasePage({ name, deals, socials }) {
         onClose={handleClose}
         aria-labelledby="form-dialog-title"
       >
-        <DialogTitle id="form-dialog-title">Cristiano's {activeDeal.name} Deal</DialogTitle>
+        <DialogTitle id="form-dialog-title">
+          Barney's {activeDeal.name} Deal
+        </DialogTitle>
 
         <DialogContent>
           <img

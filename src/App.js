@@ -55,9 +55,6 @@ function App() {
               <Route path="/table">
                 <EnhancedTable />
               </Route>
-              <Route path="/ninja">
-                <ProfilePage user="Ninja" />
-              </Route>
               <Route path="/showcase">
                 <ShowcasePage
                   name="Barney Banks"
@@ -102,6 +99,7 @@ function App() {
                     { social: "Twitter", link: "" },
                     { social: "TikTok", link: "" },
                   ]}
+                  tags={["Content Creator", "Model", "Streamer"]}
                 />
               </Route>
               <Route path="/signup">
