@@ -2,6 +2,7 @@ import "./App.css"
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom"
 import ShowcasePage from "./components/showcase-page/showcase-page.jsx"
 import SignUp from "./components/signup/signup"
+import SignUpOffers from "./components/signup/signUpOffers"
 import { makeStyles } from "@material-ui/core/styles"
 import AppBar from "@material-ui/core/AppBar"
 import Toolbar from "@material-ui/core/Toolbar"
@@ -104,7 +105,7 @@ function App() {
               <SignUp />
             </Route>
             <Route path="/signup2">
-              <Home />
+              <SignUpOffers />
             </Route>
             <Route path="/">
               <Home />
