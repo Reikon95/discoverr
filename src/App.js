@@ -94,7 +94,10 @@ function App() {
                     { showDeal: false, name: "Fila", offer: "15% off jackets" },
                   ]}
                   socials={[
-                    { social: "Instagram", link: "" },
+                    {
+                      social: "Instagram",
+                      link: "https://www.instagram.com/iammrbanks",
+                    },
                     { social: "Facebook", link: "" },
                     { social: "Twitter", link: "" },
                     { social: "TikTok", link: "" },

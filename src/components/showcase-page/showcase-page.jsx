@@ -64,7 +64,6 @@ export default function ShowcasePage({ name, deals, socials, tags, bio }) {
 
       <div className="socials-list">
         {socials.map((social) => {
-          console.log(social.social)
           return (
             <div className="socials-list-item">
               <a href={social.link} target="_blank" rel="noreferrer">
