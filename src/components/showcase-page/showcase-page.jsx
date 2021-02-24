@@ -10,7 +10,7 @@ import DialogTitle from "@material-ui/core/DialogTitle"
 import InstagramIcon from "@material-ui/icons/Instagram"
 import "./showcase-page.css"
 
-export default function ShowcasePage({ name, deals, socials, tags }) {
+export default function ShowcasePage({ name, deals, socials, tags, bio }) {
   const [open, setOpen] = useState(false)
 
   const [activeDeal, setActiveDeal] = useState({ name: "", offer: "" })
@@ -22,6 +22,11 @@ export default function ShowcasePage({ name, deals, socials, tags }) {
 
   const handleClose = () => {
     setOpen(false)
+  }
+
+  const renderCorrectSocials = () => {
+    //this function will return a correct material ui icon based on the social media site
+    return null
   }
 
   // todo - make columns 2 wide when on mobile
@@ -39,12 +44,7 @@ export default function ShowcasePage({ name, deals, socials, tags }) {
         src="https://i.insider.com/5e14563c855cc23d4d6f14f3?width=1136&format=jpeg"
       />
 
-      <div className="showcase-bio">
-        Hi Guys! Welcome to my Discoverr showcase. I am Barney Banks, a UK based
-        Content creator, gamer, model, and all round legend. Check out my
-        socials below as well as the discounts i have with my trusted brands
-        such as The Protein Works! Thank you for the support, BOSH!
-      </div>
+      <div className="showcase-bio">{bio}</div>
 
       <h4>Keep up with {name}</h4>
 
