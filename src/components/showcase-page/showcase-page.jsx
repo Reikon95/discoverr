@@ -8,6 +8,9 @@ import DialogContent from "@material-ui/core/DialogContent"
 import DialogContentText from "@material-ui/core/DialogContentText"
 import DialogTitle from "@material-ui/core/DialogTitle"
 import InstagramIcon from "@material-ui/icons/Instagram"
+import FacebookIcon from "@material-ui/icons/Facebook"
+import TwitterIcon from "@material-ui/icons/Twitter"
+import MusicNoteIcon from "@material-ui/icons/MusicNote"
 import "./showcase-page.css"
 
 export default function ShowcasePage({ name, deals, socials, tags, bio }) {
@@ -24,9 +27,20 @@ export default function ShowcasePage({ name, deals, socials, tags, bio }) {
     setOpen(false)
   }
 
-  const renderCorrectSocials = () => {
+  const renderCorrectSocials = (social) => {
     //this function will return a correct material ui icon based on the social media site
-    return null
+    switch (social) {
+      case "Instagram":
+        return <InstagramIcon></InstagramIcon>
+      case "Facebook":
+        return <FacebookIcon></FacebookIcon>
+      case "Twitter":
+        return <TwitterIcon></TwitterIcon>
+      case "TikTok":
+        return <MusicNoteIcon></MusicNoteIcon>
+      default:
+        return social
+    }
   }
 
   // todo - make columns 2 wide when on mobile
@@ -50,11 +64,11 @@ export default function ShowcasePage({ name, deals, socials, tags, bio }) {
 
       <div className="socials-list">
         {socials.map((social) => {
+          console.log(social.social)
           return (
             <div className="socials-list-item">
               <a href={social.link} target="_blank" rel="noreferrer">
-                {social.social}
-                <InstagramIcon></InstagramIcon>
+                {renderCorrectSocials(social.social)}
               </a>
             </div>
           )
