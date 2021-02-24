@@ -7,16 +7,19 @@ import DialogActions from "@material-ui/core/DialogActions"
 import DialogContent from "@material-ui/core/DialogContent"
 import DialogContentText from "@material-ui/core/DialogContentText"
 import DialogTitle from "@material-ui/core/DialogTitle"
-
+import InstagramIcon from "@material-ui/icons/Instagram"
+import FacebookIcon from "@material-ui/icons/Facebook"
+import TwitterIcon from "@material-ui/icons/Twitter"
+import MusicNoteIcon from "@material-ui/icons/MusicNote"
 import "./showcase-page.css"
 
-export default function ShowcasePage({ name, deals, socials }) {
+export default function ShowcasePage({ name, deals, socials, tags, bio }) {
   const [open, setOpen] = useState(false)
 
-  const [activeDeal, setActiveDeal] = useState({name: '', offer: ''})
+  const [activeDeal, setActiveDeal] = useState({ name: "", offer: "" })
 
   const handleClickOpen = (selectedDeal) => {
-    setActiveDeal({name: selectedDeal.name, deal: selectedDeal.offer})
+    setActiveDeal({ name: selectedDeal.name, deal: selectedDeal.offer })
     setOpen(true)
   }
 
@@ -24,20 +27,38 @@ export default function ShowcasePage({ name, deals, socials }) {
     setOpen(false)
   }
 
+  const renderCorrectSocials = (social) => {
+    //this function will return a correct material ui icon based on the social media site
+    switch (social) {
+      case "Instagram":
+        return <InstagramIcon></InstagramIcon>
+      case "Facebook":
+        return <FacebookIcon></FacebookIcon>
+      case "Twitter":
+        return <TwitterIcon></TwitterIcon>
+      case "TikTok":
+        return <MusicNoteIcon></MusicNoteIcon>
+      default:
+        return social
+    }
+  }
 
   // todo - make columns 2 wide when on mobile
 
   return (
     <>
-      <h2>{name}'s Showcase</h2>
-      {/* <img
+      <h2>{name}</h2>
+      <div className="tags-list">
+        {tags.map((tag) => {
+          return " " + tag + ", "
+        })}
+      </div>
+      <img
         className="profile-image"
         src="https://i.insider.com/5e14563c855cc23d4d6f14f3?width=1136&format=jpeg"
-      /> */}
-      <p>
-        Support {name}'s content by getting offers from top brands - it's a win
-        win!
-      </p>
+      />
+
+      <div className="showcase-bio">{bio}</div>
 
       <h4>Keep up with {name}</h4>
 
@@ -46,7 +67,7 @@ export default function ShowcasePage({ name, deals, socials }) {
           return (
             <div className="socials-list-item">
               <a href={social.link} target="_blank" rel="noreferrer">
-                {social.social}
+                {renderCorrectSocials(social.social)}
               </a>
             </div>
           )
@@ -66,8 +87,6 @@ export default function ShowcasePage({ name, deals, socials }) {
                 onClick={() => handleClickOpen(deal)}
                 className="deal-button"
               >
-                
-  
                 Get Deal!
               </Button>
             </div>
@@ -80,7 +99,9 @@ export default function ShowcasePage({ name, deals, socials }) {
         onClose={handleClose}
         aria-labelledby="form-dialog-title"
       >
-        <DialogTitle id="form-dialog-title">Cristiano's {activeDeal.name} Deal</DialogTitle>
+        <DialogTitle id="form-dialog-title">
+          Barney's {activeDeal.name} Deal
+        </DialogTitle>
 
         <DialogContent>
           <img
