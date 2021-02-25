@@ -1,4 +1,5 @@
-import { React, useState } from "react"
+import React from "react"
+import { useState } from "react"
 import { Link } from "react-router-dom"
 import Button from "@material-ui/core/Button"
 import TextField from "@material-ui/core/TextField"
@@ -37,9 +38,7 @@ export default function DialogBox({ img, dealCode, store }) {
         <DialogContentText>Deal Code: CRISTIANO2021</DialogContentText>
       </DialogContent>
       <DialogActions>
-        <Button onClick={handleClose} color="danger">
-          Cancel
-        </Button>
+        <Button onClick={handleClose}>Cancel</Button>
         <Button color="primary">
           <a href="https://www.nike.com/gb/" target="_blanl">
             GO TO NIKE!
