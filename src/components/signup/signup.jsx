@@ -19,11 +19,11 @@ export default function SignUp() {
       <p>Put the name you're best known by online</p>
       <InputLabel>Age: </InputLabel>
       <Input type="number" min="18"></Input>
+      <InputLabel>Profile Picture</InputLabel>
+      IMPORT FROM INSTAGRAM
       <h2>Socials</h2>
       <p>Fill out whichever public social media profiles you actively use.</p>
-      <p>
-        For the following, please input your username - we will do the magic :){" "}
-      </p>
+      <p>Add a link to each of your social media profiles</p>
       <InputLabel>Instagram</InputLabel>
       <Input type="text" placeholder="Instagram" required={true}></Input>
       <InputLabel>Twitter</InputLabel>
