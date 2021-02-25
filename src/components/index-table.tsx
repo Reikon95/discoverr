@@ -1,4 +1,5 @@
-import { React, useState } from "react"
+import React from "react"
+import { useState } from "react"
 import PropTypes from "prop-types"
 import clsx from "clsx"
 import { lighten, makeStyles } from "@material-ui/core/styles"
@@ -22,7 +23,15 @@ import DeleteIcon from "@material-ui/icons/Delete"
 import FilterListIcon from "@material-ui/icons/FilterList"
 import Slider from "@material-ui/core/Slider"
 
-function createData(name, instagram, youtube, twitter, tiktok, tags, country) {
+function createData(
+  name: string,
+  instagram: number,
+  youtube: number,
+  twitter: number,
+  tiktok: number,
+  tags: any[],
+  country: string
+) {
   return { name, instagram, youtube, twitter, tiktok, tags, country }
 }
 
@@ -74,7 +83,7 @@ const rows = [
   ),
 ]
 
-function descendingComparator(a, b, orderBy) {
+function descendingComparator(a: any, b: any, orderBy: any) {
   if (b[orderBy] < a[orderBy]) {
     return -1
   }
