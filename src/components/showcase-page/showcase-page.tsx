@@ -47,7 +47,7 @@ export default function ShowcasePage({ name, deals, socials, tags, bio }) {
   return (
     <>
     <div className="showcase-intro-container">
-      <h1>{name}</h1>
+      <h1 className="h1-header showcase-name-header">{name}</h1>
       <div className="tags-list">
         {tags.map((tag) => {
           return " " + tag + ", "
