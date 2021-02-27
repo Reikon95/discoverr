@@ -1,4 +1,5 @@
-import "./App.css"
+import './_variables.scss';
+import "./App.scss"
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom"
 import ShowcasePage from "./components/showcase-page/showcase-page.tsx"
 import SignUp from "./components/signup/signup"
