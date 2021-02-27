@@ -130,7 +130,14 @@ function Home() {
   return (
     <div>
       <h2>Home</h2>
-      <Link to="/signup">Sign Up</Link>
+      <div>
+      <p>Welcome to the staging version of Discoverr, if you aren't Keegan or Cam, you've done some serious digging! Why not ask us about our project? We want to hear from people with all kinds of skills.</p>
+
+      @Keegan - links to test current features below
+      </div>
+      <div>
+      <Link to="/signup">Sign Up</Link></div>
+      <Link to='/showcase'>Barney Example Page</Link>
     </div>
   )
 }
