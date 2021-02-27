@@ -19,19 +19,7 @@
   height: 7vh;
 }
 
-.profile-image {
-  height: 20vh;
-  width: 20vh;
-}
-.socials-list {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
 
-.socials-list-item {
-  margin: 0 1vw;
-}
 
 .deal-image {
   height: 75%;
@@ -42,8 +30,77 @@ a {
   text-decoration: none;
 }
 
+
+.showcase-intro-container {
+  max-height: 50vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+}
+
+.h1-header {
+  background-color: #00464C;
+  text-align: center;
+  color: white
+}
+
+
+
+.showcase-name-header {
+  grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 1;
+}
+
+.profile-image {
+  height: 20vh;
+  width: 20vh;
+  border-radius: 90%;
+  grid-column-start: 1;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 3;
+}
+
+.tags-list {
+  grid-row-start: 2;
+  grid-row-end: 2;
+  grid-column-start: 3;
+  grid-column-end: 4;
+}
+
+.socials-list {
+  display: flex;
+  grid-column-start: 1;
+  grid-column-end: 4;
+  grid-row-start: 3;
+  grid-row-end: 4;
+}
+
+.socials-list-item {
+  margin: 0 1vw;
+
+}
+
 .showcase-bio {
-  width: 50%;
   background-color: #31afb4;
   opacity: 70%;
+  color: black;
+  border-radius: 5%;
+  overflow: visible;
+  grid-row-start: 3;
+  grid-row-end: 3;
+  grid-column-start: 3;
+  grid-column-end: 4;
 }
+
+
+.support-me-button {
+  grid-row-start: 5;
+  grid-row-end: 6;
+  grid-column-start: 6;
+  grid-column-end: 6;
+}
+
+/* bring all of the relevant groupings into the same containers and then stack them? */
