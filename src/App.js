@@ -33,8 +33,8 @@ function App() {
     <Provider store={store}>
       <div className="App">
         <div className={classes.root}>
-          <AppBar position="static">
-            <Toolbar>
+          <AppBar position="static" className="global-navbar">
+            <Toolbar className="global-navbar">
               <IconButton
                 edge="start"
                 className={classes.menuButton}
@@ -44,9 +44,13 @@ function App() {
                 <MenuIcon />
               </IconButton>
               <Typography variant="h6" className={classes.title}>
-                Discoverr
+                DISCOVERR
               </Typography>
-              <Button color="inherit">Logout</Button>
+              <Button color="inherit">TRENDING</Button>
+              <Button color="inherit">NEW DEALS</Button>
+              <Button color="inherit">CATEGORIES</Button>
+
+
             </Toolbar>
           </AppBar>
         </div>
