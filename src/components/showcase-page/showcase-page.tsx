@@ -12,7 +12,7 @@ import InstagramIcon from "@material-ui/icons/Instagram"
 import FacebookIcon from "@material-ui/icons/Facebook"
 import TwitterIcon from "@material-ui/icons/Twitter"
 import MusicNoteIcon from "@material-ui/icons/MusicNote"
-import "./showcase-page.css"
+import "./showcase-page.scss"
 
 export default function ShowcasePage({ name, deals, socials, tags, bio }) {
   const [open, setOpen] = useState(false)
