@@ -25,8 +25,8 @@
 }
 .socials-list {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  /* align-items: center;
+  justify-content: center; */
 }
 
 .socials-list-item {
@@ -46,4 +46,18 @@ a {
   width: 50%;
   background-color: #31afb4;
   opacity: 70%;
+  color: black;
+  border-radius: 5%;
+  overflow: visible;
+}
+
+.showcase-intro-container {
+  max-height: 50vh;
+  display: grid;
+}
+
+.h1-header {
+  background-color: #00464C;
+  text-align: center;
+  color: white
 }

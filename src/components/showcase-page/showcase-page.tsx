@@ -29,7 +29,6 @@ export default function ShowcasePage({ name, deals, socials, tags, bio }) {
   }
 
   const renderCorrectSocials = (social) => {
-    //this function will return a correct material ui icon based on the social media site
     switch (social) {
       case "Instagram":
         return <InstagramIcon></InstagramIcon>
@@ -44,11 +43,11 @@ export default function ShowcasePage({ name, deals, socials, tags, bio }) {
     }
   }
 
-  // todo - make columns 2 wide when on mobile
 
   return (
     <>
-      <h2>{name}</h2>
+    <div className="showcase-intro-container">
+      <h1>{name}</h1>
       <div className="tags-list">
         {tags.map((tag) => {
           return " " + tag + ", "
@@ -59,11 +58,7 @@ export default function ShowcasePage({ name, deals, socials, tags, bio }) {
         src="https://i.insider.com/5e14563c855cc23d4d6f14f3?width=1136&format=jpeg"
       />
 
-      <div className="showcase-bio">{bio}</div>
-
-      <h4>Keep up with {name}</h4>
-
-      <div className="socials-list">
+<div className="socials-list">
         {socials.map((social) => {
           return (
             <div className="socials-list-item">
@@ -74,7 +69,15 @@ export default function ShowcasePage({ name, deals, socials, tags, bio }) {
           )
         })}
       </div>
-      <h4>My Deals</h4>
+      <div className="showcase-bio">{bio}</div>
+
+
+
+      <Button>
+        Support Me
+      </Button>
+      </div>
+      <h1 className="h1-header">DEALS & DISCOUNTS</h1>
 
       <div className="deals-container">
         {deals.map((deal) => {
