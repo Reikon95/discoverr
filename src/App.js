@@ -1,4 +1,5 @@
-import "./App.css"
+import './_variables.scss';
+import "./App.scss"
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom"
 import ShowcasePage from "./components/showcase-page/showcase-page.tsx"
 import SignUp from "./components/signup/signup"
@@ -32,8 +33,8 @@ function App() {
     <Provider store={store}>
       <div className="App">
         <div className={classes.root}>
-          <AppBar position="static">
-            <Toolbar>
+          <AppBar position="static" className="global-navbar">
+            <Toolbar className="global-navbar">
               <IconButton
                 edge="start"
                 className={classes.menuButton}
@@ -43,9 +44,13 @@ function App() {
                 <MenuIcon />
               </IconButton>
               <Typography variant="h6" className={classes.title}>
-                Discoverr
+                DISCOVERR
               </Typography>
-              <Button color="inherit">Logout</Button>
+              <Button color="inherit">TRENDING</Button>
+              <Button color="inherit">NEW DEALS</Button>
+              <Button color="inherit">CATEGORIES</Button>
+
+
             </Toolbar>
           </AppBar>
         </div>
@@ -130,7 +135,14 @@ function Home() {
   return (
     <div>
       <h2>Home</h2>
-      <Link to="/signup">Sign Up</Link>
+      <div>
+      <p>Welcome to the staging version of Discoverr, if you aren't Keegan or Cam, you've done some serious digging! Why not ask us about our project? We want to hear from people with all kinds of skills.</p>
+
+      @Keegan - links to test current features below
+      </div>
+      <div>
+      <Link to="/signup">Sign Up</Link></div>
+      <Link to='/showcase'>Barney Example Page</Link>
     </div>
   )
 }
