@@ -14,45 +14,12 @@ export default function SignUpOffers() {
         To get started, please list the current sponsorship offers you can pass
         onto your loyal followers!
       </p>
-      <Autocomplete
-        id="combo-box-demo"
-        options={top100Films}
-        getOptionLabel={(option) => option.title}
-        style={{ width: 300 }}
-        renderInput={(params) => (
-          <TextField {...params} label="Combo box" variant="outlined" />
-        )}
-      />
-      <InputLabel>Company not listed? Add here</InputLabel>{" "}
+      <div>
+      <InputLabel>Company</InputLabel>{" "}
       <Input type="text" required={false}></Input>
       <InputLabel>Enter The Deal:</InputLabel>
       <Input type="text" required={true}></Input>
-      <Autocomplete
-        id="combo-box-demo"
-        options={top100Films}
-        getOptionLabel={(option) => option.title}
-        style={{ width: 300 }}
-        renderInput={(params) => (
-          <TextField {...params} label="Combo box" variant="outlined" />
-        )}
-      />
-      <InputLabel>Company not listed? Add here</InputLabel>{" "}
-      <Input type="text" required={false}></Input>
-      <InputLabel>Enter The Deal:</InputLabel>
-      <Input type="text" required={true}></Input>
-      <Autocomplete
-        id="combo-box-demo"
-        options={top100Films}
-        getOptionLabel={(option) => option.title}
-        style={{ width: 300 }}
-        renderInput={(params) => (
-          <TextField {...params} label="Combo box" variant="outlined" />
-        )}
-      />
-      <InputLabel>Company not listed? Add here</InputLabel>{" "}
-      <Input type="text" required={false}></Input>
-      <InputLabel>Enter The Deal:</InputLabel>
-      <Input type="text" required={true}></Input>
+      </div>
       <Button>Check out your profile!</Button>
     </>
   )
