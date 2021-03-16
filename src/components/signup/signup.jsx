@@ -20,17 +20,12 @@ export default function SignUp() {
       <InputLabel>Age: </InputLabel>
       <Input type="number" min="18"></Input>
       <h2>Socials</h2>
-      <p>Fill out whichever public social media profiles you actively use.</p>
-      <p>
-        For the following, please input your username - we will do the magic :){" "}
-      </p>
+      <p>Link whichever public social media profiles you actively use.</p>
       <InputLabel>Instagram</InputLabel>
       <Input type="text" placeholder="Instagram" required={true}></Input>
       <InputLabel>Twitter</InputLabel>
       <Input type="text" placeholder="Your Name" required={true}></Input>
       <InputLabel>TikTok</InputLabel>
-      <Input type="text" placeholder="Your Name" required={true}></Input>
-      <InputLabel>Snap</InputLabel>
       <Input type="text" placeholder="Your Name" required={true}></Input>
       <InputLabel>Facebook</InputLabel>
       <Input type="text" placeholder="Your Name" required={true}></Input>
