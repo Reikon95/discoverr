@@ -16,9 +16,15 @@ import "../../_variables.scss"
 
 import "./showcase-page.scss"
 
-export default function ShowcasePage({ name, deals, socials, tags, bio }) {
+export default function ShowcasePage({
+  name,
+  deals,
+  socials,
+  tags,
+  bio,
+  merch,
+}) {
   const [open, setOpen] = useState(false)
-
   const [activeDeal, setActiveDeal] = useState({ name: "", offer: "" })
 
   const handleClickOpen = (selectedDeal) => {
@@ -95,10 +101,23 @@ export default function ShowcasePage({ name, deals, socials, tags, bio }) {
         </div>
         <div className="deals-and-discounts-container">
           <div>DEALS AND DISCOUNTS</div>
-          <div>
-            <div>deal</div>
-            <div>deal</div>
-            <div>deal</div>
+          <div className="deals-and-discounts-grid">
+            {deals.map((deal) => {
+              return (
+                <div className="deal-item">
+                  <div>{deal.name} </div>
+                  <div>{deal.offer}</div>
+
+                  <Button
+                    variant="outlined"
+                    onClick={() => handleClickOpen(deal)}
+                    className="deal-button"
+                  >
+                    Get Deal!
+                  </Button>
+                </div>
+              )
+            })}
           </div>
         </div>
         <div className="merch-container">
@@ -119,23 +138,9 @@ export default function ShowcasePage({ name, deals, socials, tags, bio }) {
             return " " + tag + ", "
           })}
         </div>
-        <img
-          className="profile-image"
-          src="https://i.insider.com/5e14563c855cc23d4d6f14f3?width=1136&format=jpeg"
-        />
+   
 
-        <div className="socials-list">
-          {socials.map((social) => {
-            return (
-              <div className="socials-list-item">
-                <a href={social.link} target="_blank" rel="noreferrer">
-                  {renderCorrectSocials(social.social)}
-                </a>
-              </div>
-            )
-          })}
-        </div>
-        <div className="showcase-bio">{bio}</div>
+
         <Button className="support-me-button">Support Me</Button>
       </div>
       <h1 className="h1-header">DEALS & DISCOUNTS</h1> */}
