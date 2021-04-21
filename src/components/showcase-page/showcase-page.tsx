@@ -50,13 +50,34 @@ export default function ShowcasePage({ name, deals, socials, tags, bio }) {
       <div className="showcase-container">
         <div className="showcase-entry-container">
           <div className="creator-image-wrapper">
-            <div className="creator-image">IMAGE</div>
-            <div className="creator-socials">SOCIALS</div>
+            <div className="creator-image">
+              {" "}
+              <img
+                className="profile-image"
+                src="https://i.insider.com/5e14563c855cc23d4d6f14f3?width=1136&format=jpeg"
+              />
+            </div>
+            <div className="creator-socials">
+              {socials.map((social) => {
+                return (
+                  <div className="socials-item">
+                    <a href={social.link} target="_blank" rel="noreferrer">
+                      {renderCorrectSocials(social.social)}
+                    </a>
+                  </div>
+                )
+              })}
+            </div>
           </div>
           <div className="creator-details">
-            <div className="creator-name">NAME</div>
-            <div className="creator-tags">TAGS</div>
-            <div className="creator-bio">BIO</div>
+            <div className="creator-name">{name}</div>
+            <div className="creator-tags">
+              {" "}
+              {tags.map((tag) => {
+                return " " + tag + ", "
+              })}
+            </div>
+            <div className="creator-bio">{bio}</div>
           </div>
 
           <div className="creator-support-buttons">
@@ -115,7 +136,6 @@ export default function ShowcasePage({ name, deals, socials, tags, bio }) {
           })}
         </div>
         <div className="showcase-bio">{bio}</div>
-
         <Button className="support-me-button">Support Me</Button>
       </div>
       <h1 className="h1-header">DEALS & DISCOUNTS</h1> */}

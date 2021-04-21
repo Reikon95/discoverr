@@ -1,9 +1,3 @@
-// .deals-container {
-//   display: grid;
-//   grid-template-columns: repeat(3, 1fr);
-//   justify-items: center;
-// }
-
 // .item {
 //   border: solid black 1px;
 //   height: 15vh;
@@ -48,58 +42,30 @@
 //   grid-row-end: 1;
 // }
 
-// .profile-image {
-//   height: 20vh;
-//   width: 20vh;
-//   border-radius: 90%;
-//   grid-column-start: 1;
-//   grid-column-end: 4;
-//   grid-row-start: 1;
-//   grid-row-end: 3;
-// }
-
-// .tags-list {
-//   grid-row-start: 2;
-//   grid-row-end: 2;
-//   grid-column-start: 3;
-//   grid-column-end: 4;
-// }
-
-// .socials-list {
-//   display: flex;
-//   grid-column-start: 1;
-//   grid-column-end: 4;
-//   grid-row-start: 3;
-//   grid-row-end: 4;
-// }
-
-// .socials-list-item {
-//   margin: 0 1vw;
-// }
-
-// .showcase-bio {
-//   background-color: #31afb4;
-//   opacity: 70%;
-//   color: black;
-//   border-radius: 5%;
-//   overflow: visible;
-//   grid-row-start: 3;
-//   grid-row-end: 3;
-//   grid-column-start: 3;
-//   grid-column-end: 4;
-// }
-
-// .support-me-button {
-//   grid-row-start: 5;
-//   grid-row-end: 6;
-//   grid-column-start: 6;
-//   grid-column-end: 6;
-// }
-
-/* bring all of the relevant groupings into the same containers and then stack them? */
-
 .showcase-entry-container {
-  background-color: red;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  padding-top: 10vh;
+}
+
+.profile-image {
+  height: 20vh;
+  width: 20vh;
+  border-radius: 90%;
+}
+
+.creator-bio {
+  background-color: #31afb4;
+  opacity: 70%;
+  color: black;
+  border-radius: 5%;
+}
+
+.creator-socials {
+  display: flex;
+  justify-content: center;
+}
+
+.socials-item {
+  margin: 0 1vw;
 }
