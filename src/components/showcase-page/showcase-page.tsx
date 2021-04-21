@@ -16,9 +16,15 @@ import "../../_variables.scss"
 
 import "./showcase-page.scss"
 
-export default function ShowcasePage({ name, deals, socials, tags, bio }) {
+export default function ShowcasePage({
+  name,
+  deals,
+  socials,
+  tags,
+  bio,
+  merch,
+}) {
   const [open, setOpen] = useState(false)
-
   const [activeDeal, setActiveDeal] = useState({ name: "", offer: "" })
 
   const handleClickOpen = (selectedDeal) => {
