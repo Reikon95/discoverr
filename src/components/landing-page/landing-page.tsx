@@ -1,5 +1,5 @@
 import React from "react"
 
 export default function LandingPage() {
-  ;<>Welcome to Discoverr</>
+  ;<div>Hello World</div>
 }

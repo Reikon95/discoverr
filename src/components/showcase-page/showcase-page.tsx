@@ -16,7 +16,6 @@ import "../../_variables.scss"
 
 import "./showcase-page.scss"
 
-
 export default function ShowcasePage({ name, deals, socials, tags, bio }) {
   const [open, setOpen] = useState(false)
 
@@ -46,43 +45,59 @@ export default function ShowcasePage({ name, deals, socials, tags, bio }) {
     }
   }
 
-
   return (
     <>
-    <div className="showcase-intro-container">
-      <h1 className=" showcase-name-header">{name}</h1>
-      <div className="tags-list">
-        {tags.map((tag) => {
-          return " " + tag + ", "
-        })}
+      <div>
+        <div>
+          <div>NAME</div>
+          <div>TAGS</div>
+          <div>BIO</div>
+        </div>
+        <div>
+          <div>IMAGE</div>
+          <div>SOCIALS</div>
+        </div>
+        <div>
+          <div>MY LATEST UPLOADS</div>
+          <div>
+            <div>UPLOAD</div>
+            <div>UPLOAD</div>
+            <div>UPLOAD</div>
+          </div>
+        </div>
       </div>
-      <img
-        className="profile-image"
-        src="https://i.insider.com/5e14563c855cc23d4d6f14f3?width=1136&format=jpeg"
-      />
 
-<div className="socials-list">
-        {socials.map((social) => {
-          return (
-            <div className="socials-list-item">
-              <a href={social.link} target="_blank" rel="noreferrer">
-                {renderCorrectSocials(social.social)}
-              </a>
-            </div>
-          )
-        })}
+      {/* <div className="showcase-intro-container">
+        <div>
+          <h1 className=" showcase-name-header">{name}</h1>
+          <div className="tags-list"></div>
+          {tags.map((tag) => {
+            return " " + tag + ", "
+          })}
+        </div>
+        <img
+          className="profile-image"
+          src="https://i.insider.com/5e14563c855cc23d4d6f14f3?width=1136&format=jpeg"
+        />
+
+        <div className="socials-list">
+          {socials.map((social) => {
+            return (
+              <div className="socials-list-item">
+                <a href={social.link} target="_blank" rel="noreferrer">
+                  {renderCorrectSocials(social.social)}
+                </a>
+              </div>
+            )
+          })}
+        </div>
+        <div className="showcase-bio">{bio}</div>
+
+        <Button className="support-me-button">Support Me</Button>
       </div>
-      <div className="showcase-bio">{bio}</div>
+      <h1 className="h1-header">DEALS & DISCOUNTS</h1> */}
 
-
-
-      <Button className="support-me-button">
-        Support Me
-      </Button>
-      </div>
-      <h1 className="h1-header">DEALS & DISCOUNTS</h1>
-
-      <div className="deals-container">
+      {/* <div className="deals-container">
         {deals.map((deal) => {
           return (
             <div className="item">
@@ -125,7 +140,7 @@ export default function ShowcasePage({ name, deals, socials, tags, bio }) {
             </a>
           </Button>
         </DialogActions>
-      </Dialog>
+      </Dialog> */}
     </>
   )
 }
