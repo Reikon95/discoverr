@@ -97,3 +97,9 @@
 // }
 
 /* bring all of the relevant groupings into the same containers and then stack them? */
+
+.showcase-entry-container {
+  background-color: red;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}

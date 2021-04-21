@@ -47,22 +47,45 @@ export default function ShowcasePage({ name, deals, socials, tags, bio }) {
 
   return (
     <>
-      <div>
-        <div>
-          <div>NAME</div>
-          <div>TAGS</div>
-          <div>BIO</div>
+      <div className="showcase-container">
+        <div className="showcase-entry-container">
+          <div className="creator-image-wrapper">
+            <div className="creator-image">IMAGE</div>
+            <div className="creator-socials">SOCIALS</div>
+          </div>
+          <div className="creator-details">
+            <div className="creator-name">NAME</div>
+            <div className="creator-tags">TAGS</div>
+            <div className="creator-bio">BIO</div>
+          </div>
+
+          <div className="creator-support-buttons">
+            <button>sdhf</button>
+            <button>soidjfg</button>
+          </div>
         </div>
-        <div>
-          <div>IMAGE</div>
-          <div>SOCIALS</div>
-        </div>
-        <div>
+        <div className="creator-latest-uploads">
           <div>MY LATEST UPLOADS</div>
           <div>
             <div>UPLOAD</div>
             <div>UPLOAD</div>
             <div>UPLOAD</div>
+          </div>
+        </div>
+        <div className="deals-and-discounts-container">
+          <div>DEALS AND DISCOUNTS</div>
+          <div>
+            <div>deal</div>
+            <div>deal</div>
+            <div>deal</div>
+          </div>
+        </div>
+        <div className="merch-container">
+          <div>MERCH</div>
+          <div>
+            <div>merch</div>
+            <div>merch</div>
+            <div>merch</div>
           </div>
         </div>
       </div>
