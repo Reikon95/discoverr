@@ -55,6 +55,9 @@ export default function SignUp() {
               placeholder="Your Age"
               min="18"
               required={true}
+              onChange={(e) =>
+                setUserDetails({ ...userDetails, age: e.target.value })
+              }
             ></Input>
           </FormControl>
         </div>
@@ -122,7 +125,6 @@ export default function SignUp() {
 
         <p>Now let's move on to list your best offers for your audience!</p>
         {/* <Link to="/signup2"> */}
-        {/* <Button>Next Step</Button> */}
         <input
           id="formButton"
           className="btn"
