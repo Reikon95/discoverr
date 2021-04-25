@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import {
   Input,
   InputLabel,
@@ -14,8 +14,18 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom"
 export default function SignUp() {
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log("hit submit")
+    console.log("hit submit ", userDetails)
   }
+
+  const [userDetails, setUserDetails] = useState({
+    name: null,
+    age: null,
+    instagram: null,
+    tiktok: null,
+    facebook: null,
+    twitter: null,
+    youtube: null,
+  })
   return (
     <>
       <h1>Welcome to Discoverr.</h1>
@@ -26,7 +36,14 @@ export default function SignUp() {
       <form onSubmit={handleSubmit}>
         <div className="form-vertical-batch">
           <FormControl>
-            <Input type="text" placeholder="Your Name" required={true}></Input>
+            <Input
+              type="text"
+              placeholder="Your Name"
+              required={true}
+              onChange={(e) =>
+                setUserDetails({ ...userDetails, name: e.target.value })
+              }
+            ></Input>
 
             <FormHelperText>
               Put the name you're best known by online
@@ -48,23 +65,58 @@ export default function SignUp() {
         </p>
         <div className="socials-wrapper form-vertical-batch">
           <FormControl>
-            <Input type="text" placeholder="Instagram" required={false}></Input>
+            <Input
+              type="text"
+              placeholder="Instagram"
+              required={false}
+              onChange={(e) =>
+                setUserDetails({ ...userDetails, instagram: e.target.value })
+              }
+            ></Input>
           </FormControl>
 
           <FormControl>
-            <Input type="text" placeholder="Twitter" required={false}></Input>
+            <Input
+              type="text"
+              placeholder="Twitter"
+              required={false}
+              onChange={(e) =>
+                setUserDetails({ ...userDetails, twitter: e.target.value })
+              }
+            ></Input>
           </FormControl>
 
           <FormControl>
-            <Input type="text" placeholder="TikTok" required={false}></Input>
+            <Input
+              type="text"
+              placeholder="TikTok"
+              required={false}
+              onChange={(e) =>
+                setUserDetails({ ...userDetails, tiktok: e.target.value })
+              }
+            ></Input>
           </FormControl>
 
           <FormControl>
-            <Input type="text" placeholder="Facebook" required={false}></Input>
+            <Input
+              type="text"
+              placeholder="Facebook"
+              required={false}
+              onChange={(e) =>
+                setUserDetails({ ...userDetails, facebook: e.target.value })
+              }
+            ></Input>
           </FormControl>
 
           <FormControl>
-            <Input type="text" placeholder="Youtube" required={false}></Input>
+            <Input
+              type="text"
+              placeholder="Youtube"
+              required={false}
+              onChange={(e) =>
+                setUserDetails({ ...userDetails, youtube: e.target.value })
+              }
+            ></Input>
           </FormControl>
         </div>
 
