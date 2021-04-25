@@ -12,10 +12,12 @@ a {
   text-decoration: none;
 }
 
-
 .global-navbar {
-  background-color: #00464C;;
-
-
+  background-color: #00464c;
 }
 
+.three-column-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-items: center;
+}

@@ -101,7 +101,7 @@ export default function ShowcasePage({
         </div>
         <div className="deals-and-discounts-container">
           <div>DEALS AND DISCOUNTS</div>
-          <div className="deals-and-discounts-grid">
+          <div className="deals-and-discounts-grid three-column-grid">
             {deals.map((deal) => {
               return (
                 <div className="deal-item">
@@ -122,47 +122,29 @@ export default function ShowcasePage({
         </div>
         <div className="merch-container">
           <div>MERCH</div>
-          <div>
-            <div>merch</div>
-            <div>merch</div>
-            <div>merch</div>
+          <div className="three-column-grid">
+            {deals.map((deal) => {
+              return (
+                <div className="deal-item">
+                  <div>{deal.name} </div>
+                  <div>{deal.offer}</div>
+
+                  <Button
+                    variant="outlined"
+                    onClick={() => handleClickOpen(deal)}
+                    className="deal-button"
+                  >
+                    Get Deal!
+                  </Button>
+                </div>
+              )
+            })}
           </div>
         </div>
       </div>
 
-      {/* <div className="showcase-intro-container">
-        <div>
-          <h1 className=" showcase-name-header">{name}</h1>
-          <div className="tags-list"></div>
-          {tags.map((tag) => {
-            return " " + tag + ", "
-          })}
-        </div>
-   
-
-
-        <Button className="support-me-button">Support Me</Button>
-      </div>
-      <h1 className="h1-header">DEALS & DISCOUNTS</h1> */}
-
-      {/* <div className="deals-container">
-        {deals.map((deal) => {
-          return (
-            <div className="item">
-              <div>{deal.name} </div>
-              <div>{deal.offer}</div>
-
-              <Button
-                variant="outlined"
-                onClick={() => handleClickOpen(deal)}
-                className="deal-button"
-              >
-                Get Deal!
-              </Button>
-            </div>
-          )
-        })}
-      </div>
+      {/* 
+      
 
       <Dialog
         open={open}
