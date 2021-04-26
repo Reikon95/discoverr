@@ -6,7 +6,17 @@ import Button from "@material-ui/core/Button"
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom"
 
 export default function SignUpOffers() {
- 
+  const addAnother = (): any => {
+    return (
+      <div className="offer-signup-wrapper">
+        <InputLabel>Company</InputLabel>{" "}
+        <Input type="text" required={false}></Input>
+        <InputLabel>Enter The Deal:</InputLabel>
+        <Input type="text" required={true}></Input>
+      </div>
+    )
+  }
+
   return (
     <>
       <h2>Current Offers</h2>
@@ -14,12 +24,13 @@ export default function SignUpOffers() {
         To get started, please list the current sponsorship offers you can pass
         onto your loyal followers!
       </p>
-      <div>
-      <InputLabel>Company</InputLabel>{" "}
-      <Input type="text" required={false}></Input>
-      <InputLabel>Enter The Deal:</InputLabel>
-      <Input type="text" required={true}></Input>
+      <div className="offer-signup-wrapper">
+        <InputLabel>Company</InputLabel>{" "}
+        <Input type="text" required={false}></Input>
+        <InputLabel>Enter The Deal:</InputLabel>
+        <Input type="text" required={true}></Input>
       </div>
+      <Button onClick={addAnother}>Add another</Button>
       <Button>Check out your profile!</Button>
     </>
   )
