@@ -59,6 +59,9 @@ export default function SignUp() {
                 setUserDetails({ ...userDetails, age: e.target.value })
               }
             ></Input>
+            <FormHelperText>
+              You currently must be 18 to use Discoverr.
+            </FormHelperText>
           </FormControl>
         </div>
         <h2>Socials</h2>
