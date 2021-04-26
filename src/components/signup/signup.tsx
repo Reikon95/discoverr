@@ -5,6 +5,7 @@ import {
   FormControl,
   FormHelperText,
 } from "@material-ui/core"
+import { useHistory } from "react-router-dom"
 import "./signup.scss"
 import TextField from "@material-ui/core/TextField"
 import Autocomplete from "@material-ui/lab/Autocomplete"
@@ -12,10 +13,12 @@ import Button from "@material-ui/core/Button"
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom"
 
 export default function SignUp() {
+  const history = useHistory()
+
   const handleSubmit = (e) => {
     e.preventDefault()
     console.log("hit submit ", userDetails)
-    // navigate to next page - router link?
+    history.push("/signup2")
   }
 
   const [userDetails, setUserDetails] = useState({
@@ -52,15 +55,6 @@ export default function SignUp() {
             </FormHelperText>
           </FormControl>
           <FormControl>
-            {/* <Input
-              type="number"
-              placeholder="Your Age"
-              min="18"
-              required={true}
-              onChange={(e) =>
-                setUserDetails({ ...userDetails, age: e.target.value })
-              }
-            ></Input> */}
             <TextField
               type="number"
               inputProps={{ min: 18, max: 99 }}
@@ -137,15 +131,13 @@ export default function SignUp() {
         </div>
 
         <p>Now let's move on to list your best offers for your audience!</p>
-        {/* <Link to="/signup2"> */}
         <input
           id="formButton"
-          className="btn"
+          className="btn sign-up-button"
           type="submit"
           placeholder="Send message"
           value="Join Discoverr!"
         />
-        {/* </Link> */}
       </form>
     </>
   )

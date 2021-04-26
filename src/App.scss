@@ -21,3 +21,8 @@ a {
   grid-template-columns: 1fr 1fr 1fr;
   justify-items: center;
 }
+
+.vertical-stack {
+  display: flex;
+  flex-direction: column;
+}

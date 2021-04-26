@@ -86,9 +86,21 @@ export default function ShowcasePage({
             <div className="creator-bio">{bio}</div>
           </div>
 
-          <div className="creator-support-buttons">
-            <button>sdhf</button>
-            <button>soidjfg</button>
+          <div className="creator-support-buttons vertical-stack">
+            <Button
+              color="primary"
+              variant="contained"
+              className="support-button"
+            >
+              FOLLOW ME
+            </Button>
+            <Button
+              color="primary"
+              variant="contained"
+              className="support-button"
+            >
+              SUPPORT ME
+            </Button>
           </div>
         </div>
         <div className="creator-latest-uploads">
