@@ -15,6 +15,7 @@ export default function SignUp() {
   const handleSubmit = (e) => {
     e.preventDefault()
     console.log("hit submit ", userDetails)
+    // navigate to next page - router link?
   }
 
   const [userDetails, setUserDetails] = useState({
@@ -50,7 +51,7 @@ export default function SignUp() {
             </FormHelperText>
           </FormControl>
           <FormControl>
-            <Input
+            {/* <Input
               type="number"
               placeholder="Your Age"
               min="18"
@@ -58,7 +59,15 @@ export default function SignUp() {
               onChange={(e) =>
                 setUserDetails({ ...userDetails, age: e.target.value })
               }
-            ></Input>
+            ></Input> */}
+            <TextField
+              type="number"
+              inputProps={{ min: 18, max: 99 }}
+              onChange={(e) =>
+                setUserDetails({ ...userDetails, age: e.target.value })
+              }
+            />
+
             <FormHelperText>
               You currently must be 18 to use Discoverr.
             </FormHelperText>
