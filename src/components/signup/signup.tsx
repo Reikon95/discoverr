@@ -17,7 +17,7 @@ export default function SignUp() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log("hit submit ", userDetails)
+    
     history.push("/signup2")
   }
 
