@@ -47,7 +47,8 @@ export default function SignUp() {
             ></Input>
 
             <FormHelperText>
-              Put the name you're best known by online
+              Put the name you're best known by online - either a nickname,
+              brand name, or your real name.
             </FormHelperText>
           </FormControl>
           <FormControl>
@@ -69,7 +70,7 @@ export default function SignUp() {
             />
 
             <FormHelperText>
-              You currently must be 18 to use Discoverr.
+              You currently must be at least 18 years old to use Discoverr.
             </FormHelperText>
           </FormControl>
         </div>
@@ -142,6 +143,7 @@ export default function SignUp() {
           className="btn"
           type="submit"
           placeholder="Send message"
+          value="Join Discoverr!"
         />
         {/* </Link> */}
       </form>
