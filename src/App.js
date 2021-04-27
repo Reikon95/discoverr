@@ -13,6 +13,7 @@ import IconButton from "@material-ui/core/IconButton"
 import MenuIcon from "@material-ui/icons/Menu"
 // import ProfilePage from "./components/profile-page/profile-page"
 import EnhancedTable from "./components/index-table.tsx"
+import { UserProvider } from "./StateContext"
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -29,100 +30,102 @@ function App() {
   const classes = useStyles()
 
   return (
-    <div className="App">
-      <div className={classes.root}>
-        <AppBar position="static" className="global-navbar">
-          <Toolbar className="global-navbar">
-            <IconButton
-              edge="start"
-              className={classes.menuButton}
-              color="inherit"
-              aria-label="menu"
-            >
-              <MenuIcon />
-            </IconButton>
-            <Typography variant="h6" className={classes.title}>
-              DISCOVERR
-            </Typography>
-            <Button color="inherit">TRENDING</Button>
-            <Button color="inherit">NEW DEALS</Button>
-            <Button color="inherit">CATEGORIES</Button>
-          </Toolbar>
-        </AppBar>
-      </div>
-      <Router>
-        <div>
-          <Switch>
-            <Route path="/table">
-              <EnhancedTable />
-            </Route>
-            <Route path="/showcase">
-              <ShowcasePage
-                name="Barney Banks"
-                deals={[
-                  {
-                    showDeal: false,
-                    name: "Macron",
-                    offer: "10% off first purchase",
-                  },
-                  {
-                    showDeal: false,
-                    name: "Canterbury",
-                    offer: "15% off subscription",
-                  },
-                  { showDeal: false, name: "Nike", offer: "Free Socks" },
-                  {
-                    showDeal: false,
-                    name: "Adidas",
-                    offer: "Win an Arsenal Shirt",
-                  },
-                  {
-                    showDeal: false,
-                    name: "Underarmour",
-                    offer: "25% off first purchase",
-                  },
-                  {
-                    showDeal: false,
-                    name: "Warrior",
-                    offer: "50% off first three purchases",
-                  },
-                  { showDeal: false, name: "CCM", offer: "Win a free stick" },
-                  {
-                    showDeal: false,
-                    name: "Puma",
-                    offer: "20% extra off all sale items",
-                  },
-                  { showDeal: false, name: "Fila", offer: "15% off jackets" },
-                ]}
-                socials={[
-                  {
-                    social: "Instagram",
-                    link: "https://www.instagram.com/iammrbanks",
-                  },
-                  { social: "Facebook", link: "" },
-                  { social: "Twitter", link: "" },
-                  { social: "TikTok", link: "" },
-                ]}
-                tags={["Content Creator", "Model", "Streamer"]}
-                bio="Hi Guys! Welcome to my Discoverr showcase. I am Barney Banks, a UK based
+    <UserProvider>
+      <div className="App">
+        <div className={classes.root}>
+          <AppBar position="static" className="global-navbar">
+            <Toolbar className="global-navbar">
+              <IconButton
+                edge="start"
+                className={classes.menuButton}
+                color="inherit"
+                aria-label="menu"
+              >
+                <MenuIcon />
+              </IconButton>
+              <Typography variant="h6" className={classes.title}>
+                DISCOVERR
+              </Typography>
+              <Button color="inherit">TRENDING</Button>
+              <Button color="inherit">NEW DEALS</Button>
+              <Button color="inherit">CATEGORIES</Button>
+            </Toolbar>
+          </AppBar>
+        </div>
+        <Router>
+          <div>
+            <Switch>
+              <Route path="/table">
+                <EnhancedTable />
+              </Route>
+              <Route path="/showcase">
+                <ShowcasePage
+                  name="Barney Banks"
+                  deals={[
+                    {
+                      showDeal: false,
+                      name: "Macron",
+                      offer: "10% off first purchase",
+                    },
+                    {
+                      showDeal: false,
+                      name: "Canterbury",
+                      offer: "15% off subscription",
+                    },
+                    { showDeal: false, name: "Nike", offer: "Free Socks" },
+                    {
+                      showDeal: false,
+                      name: "Adidas",
+                      offer: "Win an Arsenal Shirt",
+                    },
+                    {
+                      showDeal: false,
+                      name: "Underarmour",
+                      offer: "25% off first purchase",
+                    },
+                    {
+                      showDeal: false,
+                      name: "Warrior",
+                      offer: "50% off first three purchases",
+                    },
+                    { showDeal: false, name: "CCM", offer: "Win a free stick" },
+                    {
+                      showDeal: false,
+                      name: "Puma",
+                      offer: "20% extra off all sale items",
+                    },
+                    { showDeal: false, name: "Fila", offer: "15% off jackets" },
+                  ]}
+                  socials={[
+                    {
+                      social: "Instagram",
+                      link: "https://www.instagram.com/iammrbanks",
+                    },
+                    { social: "Facebook", link: "" },
+                    { social: "Twitter", link: "" },
+                    { social: "TikTok", link: "" },
+                  ]}
+                  tags={["Content Creator", "Model", "Streamer"]}
+                  bio="Hi Guys! Welcome to my Discoverr showcase. I am Barney Banks, a UK based
                   Content creator, gamer, model, and all round legend. Check out my
                   socials below as well as the discounts i have with my trusted brands
                   such as The Protein Works! Thank you for the support, BOSH!"
-              />
-            </Route>
-            <Route path="/signup">
-              <SignUp />
-            </Route>
-            <Route path="/signup2">
-              <SignUpOffers />
-            </Route>
-            <Route path="/">
-              <Home />
-            </Route>
-          </Switch>
-        </div>
-      </Router>
-    </div>
+                />
+              </Route>
+              <Route path="/signup">
+                <SignUp />
+              </Route>
+              <Route path="/signup2">
+                <SignUpOffers />
+              </Route>
+              <Route path="/">
+                <Home />
+              </Route>
+            </Switch>
+          </div>
+        </Router>
+      </div>
+    </UserProvider>
   )
 }
 
