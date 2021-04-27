@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useContext, useEffect } from "react"
 import {
   Input,
   InputLabel,
@@ -11,14 +11,17 @@ import TextField from "@material-ui/core/TextField"
 import Autocomplete from "@material-ui/lab/Autocomplete"
 import Button from "@material-ui/core/Button"
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom"
+import { UserProvider, UserContext } from "../../StateContext"
 
 export default function SignUp() {
+  const user = useContext(UserContext)
   const history = useHistory()
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    
-    history.push("/signup2")
+    useEffect(() => {
+    user.setName(userDetails.name)
+    // history.push("/signup2")
   }
 
   const [userDetails, setUserDetails] = useState({
