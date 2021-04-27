@@ -1,11 +1,20 @@
-import React from "react"
+import React, { useContext } from "react"
 import { Input, InputLabel } from "@material-ui/core"
 import TextField from "@material-ui/core/TextField"
 import Autocomplete from "@material-ui/lab/Autocomplete"
 import Button from "@material-ui/core/Button"
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom"
-
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useHistory,
+} from "react-router-dom"
+import { UserProvider, UserContext } from "../../StateContext"
 export default function SignUpOffers() {
+  const user = useContext(UserContext)
+  const history = useHistory()
+
   const addAnother = (): any => {
     return (
       <div className="offer-signup-wrapper">
@@ -16,7 +25,7 @@ export default function SignUpOffers() {
       </div>
     )
   }
-
+  console.log(user)
   return (
     <>
       <h2>Current Offers</h2>

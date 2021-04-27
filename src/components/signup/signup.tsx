@@ -19,9 +19,8 @@ export default function SignUp() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    useEffect(() => {
     user.setName(userDetails.name)
-    // history.push("/signup2")
+    history.push("/signup2")
   }
 
   const [userDetails, setUserDetails] = useState({
