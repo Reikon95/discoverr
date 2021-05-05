@@ -20,12 +20,15 @@ export default function SignUp() {
   const handleSubmit = (e) => {
     e.preventDefault()
     user.setName(userDetails.name)
+    user.setSignedIn(true)
     history.push("/signup2")
   }
 
   const [userDetails, setUserDetails] = useState({
     name: null,
     age: null,
+    bio: "",
+    email: "",
     instagram: null,
     tiktok: null,
     facebook: null,
@@ -67,6 +70,33 @@ export default function SignUp() {
 
             <FormHelperText>
               You currently must be at least 18 years old to use Discoverr.
+            </FormHelperText>
+          </FormControl>
+          <FormControl>
+            <TextField
+              type="email"
+              onChange={(e) =>
+                setUserDetails({ ...userDetails, email: e.target.value })
+              }
+              placeholder="Your email"
+            />
+
+            <FormHelperText>
+              This is for us to contact you, it isn't public.
+            </FormHelperText>
+          </FormControl>
+          <FormControl>
+            <TextField
+              placeholder="A bit about me!"
+              onChange={(e) =>
+                setUserDetails({ ...userDetails, bio: e.target.value })
+              }
+              multiline={true}
+              rows={4}
+            ></TextField>
+            <FormHelperText>
+              This is your bio - tell us a bit about yourself! This is what your
+              fans will read, so keep that in mind.
             </FormHelperText>
           </FormControl>
         </div>
