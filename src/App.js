@@ -14,6 +14,7 @@ import MenuIcon from "@material-ui/icons/Menu"
 // import ProfilePage from "./components/profile-page/profile-page"
 import EnhancedTable from "./components/index-table.tsx"
 import { UserProvider } from "./StateContext"
+import LandingPage from "./components/landing-page/landing-page"
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -118,6 +119,9 @@ function App() {
               <Route path="/signup2">
                 <SignUpOffers />
               </Route>
+              <Route path="/landing">
+                <LandingPage />
+              </Route>
               <Route path="/">
                 <Home />
               </Route>
@@ -145,6 +149,7 @@ function Home() {
         <Link to="/signup">Sign Up</Link>
       </div>
       <Link to="/showcase">Barney Example Page</Link>
+      <Link to="/landing">Landing Page</Link>
     </div>
   )
 }
