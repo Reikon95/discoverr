@@ -25,7 +25,6 @@ export default function SignUpOffers() {
       </div>
     )
   }
-  console.log(user)
   return (
     <>
       <h2>Current Offers</h2>
