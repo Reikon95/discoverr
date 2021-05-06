@@ -1,7 +1,7 @@
-import React from "react"
-import { Button } from "@material-ui/core"
-import "./landing-page.scss"
-import { Link } from "react-router-dom"
+import React from "react";
+import { Button } from "@material-ui/core";
+import "./landing-page.scss";
+import { Link } from "react-router-dom";
 
 export default function LandingPage() {
   return (
@@ -25,5 +25,5 @@ export default function LandingPage() {
         </div>
       </div>
     </>
-  )
+  );
 }

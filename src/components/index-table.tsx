@@ -1,27 +1,27 @@
-import React from "react"
-import { useState } from "react"
-import PropTypes from "prop-types"
-import clsx from "clsx"
-import { lighten, makeStyles } from "@material-ui/core/styles"
-import Table from "@material-ui/core/Table"
-import TableBody from "@material-ui/core/TableBody"
-import TableCell from "@material-ui/core/TableCell"
-import TableContainer from "@material-ui/core/TableContainer"
-import TableHead from "@material-ui/core/TableHead"
-import TablePagination from "@material-ui/core/TablePagination"
-import TableRow from "@material-ui/core/TableRow"
-import TableSortLabel from "@material-ui/core/TableSortLabel"
-import Toolbar from "@material-ui/core/Toolbar"
-import Typography from "@material-ui/core/Typography"
-import Paper from "@material-ui/core/Paper"
-import Checkbox from "@material-ui/core/Checkbox"
-import IconButton from "@material-ui/core/IconButton"
-import Tooltip from "@material-ui/core/Tooltip"
-import FormControlLabel from "@material-ui/core/FormControlLabel"
-import Switch from "@material-ui/core/Switch"
-import DeleteIcon from "@material-ui/icons/Delete"
-import FilterListIcon from "@material-ui/icons/FilterList"
-import Slider from "@material-ui/core/Slider"
+import React from "react";
+import { useState } from "react";
+import PropTypes from "prop-types";
+import clsx from "clsx";
+import { lighten, makeStyles } from "@material-ui/core/styles";
+import Table from "@material-ui/core/Table";
+import TableBody from "@material-ui/core/TableBody";
+import TableCell from "@material-ui/core/TableCell";
+import TableContainer from "@material-ui/core/TableContainer";
+import TableHead from "@material-ui/core/TableHead";
+import TablePagination from "@material-ui/core/TablePagination";
+import TableRow from "@material-ui/core/TableRow";
+import TableSortLabel from "@material-ui/core/TableSortLabel";
+import Toolbar from "@material-ui/core/Toolbar";
+import Typography from "@material-ui/core/Typography";
+import Paper from "@material-ui/core/Paper";
+import Checkbox from "@material-ui/core/Checkbox";
+import IconButton from "@material-ui/core/IconButton";
+import Tooltip from "@material-ui/core/Tooltip";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import Switch from "@material-ui/core/Switch";
+import DeleteIcon from "@material-ui/icons/Delete";
+import FilterListIcon from "@material-ui/icons/FilterList";
+import Slider from "@material-ui/core/Slider";
 
 function createData(
   name: string,
@@ -32,7 +32,7 @@ function createData(
   tags: any[],
   country: string
 ) {
-  return { name, instagram, youtube, twitter, tiktok, tags, country }
+  return { name, instagram, youtube, twitter, tiktok, tags, country };
 }
 
 const rows = [
@@ -81,34 +81,34 @@ const rows = [
     ["Musician", "Rapper", "Fashion"],
     "Sweden"
   ),
-]
+];
 
 function descendingComparator(a: any, b: any, orderBy: any) {
   if (b[orderBy] < a[orderBy]) {
-    return -1
+    return -1;
   }
   if (b[orderBy] > a[orderBy]) {
-    return 1
+    return 1;
   }
-  return 0
+  return 0;
 }
 
 function getComparator(order, orderBy) {
   return order === "desc"
     ? (a, b) => descendingComparator(a, b, orderBy)
-    : (a, b) => -descendingComparator(a, b, orderBy)
+    : (a, b) => -descendingComparator(a, b, orderBy);
 }
 
 function stableSort(array, comparator) {
-  const stabilizedThis = array.map((el, index) => [el, index])
-  console.log(stabilizedThis)
+  const stabilizedThis = array.map((el, index) => [el, index]);
+  console.log(stabilizedThis);
   stabilizedThis.sort((a, b) => {
-    const order = comparator(a[0], b[0])
-    if (order !== 0) return order
-    return a[1] - b[1]
-  })
-  console.log(stabilizedThis.map((el) => el[0]))
-  return stabilizedThis.map((el) => el[0])
+    const order = comparator(a[0], b[0]);
+    if (order !== 0) return order;
+    return a[1] - b[1];
+  });
+  console.log(stabilizedThis.map((el) => el[0]));
+  return stabilizedThis.map((el) => el[0]);
 }
 
 const headCells = [
@@ -124,7 +124,7 @@ const headCells = [
   { id: "tiktok", numeric: true, disablePadding: false, label: "TikTok" },
   { id: "tags", numeric: false, disablePadding: false, label: "Tags" },
   { id: "country", numeric: false, disablePadding: false, label: "Country" },
-]
+];
 
 function EnhancedTableHead(props) {
   const {
@@ -135,10 +135,10 @@ function EnhancedTableHead(props) {
     numSelected,
     rowCount,
     onRequestSort,
-  } = props
+  } = props;
   const createSortHandler = (property) => (event) => {
-    onRequestSort(event, property)
-  }
+    onRequestSort(event, property);
+  };
 
   return (
     <TableHead>
@@ -174,7 +174,7 @@ function EnhancedTableHead(props) {
         ))}
       </TableRow>
     </TableHead>
-  )
+  );
 }
 
 EnhancedTableHead.propTypes = {
@@ -185,7 +185,7 @@ EnhancedTableHead.propTypes = {
   order: PropTypes.oneOf(["asc", "desc"]).isRequired,
   orderBy: PropTypes.string.isRequired,
   rowCount: PropTypes.number.isRequired,
-}
+};
 
 const useToolbarStyles = makeStyles((theme) => ({
   root: {
@@ -205,11 +205,11 @@ const useToolbarStyles = makeStyles((theme) => ({
   title: {
     flex: "1 1 100%",
   },
-}))
+}));
 
 const EnhancedTableToolbar = (props) => {
-  const classes = useToolbarStyles()
-  const { numSelected } = props
+  const classes = useToolbarStyles();
+  const { numSelected } = props;
 
   return (
     <Toolbar
@@ -251,12 +251,12 @@ const EnhancedTableToolbar = (props) => {
         </Tooltip>
       )}
     </Toolbar>
-  )
-}
+  );
+};
 
 EnhancedTableToolbar.propTypes = {
   numSelected: PropTypes.number.isRequired,
-}
+};
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -280,121 +280,121 @@ const useStyles = makeStyles((theme) => ({
     top: 20,
     width: 1,
   },
-}))
+}));
 
 export default function EnhancedTable() {
-  let filteredView = rows
+  let filteredView = rows;
 
   function filterByTags(tags) {
     let filteredArray = rows.filter((row) => {
       for (let tag of row.tags) {
         if (tags.includes(tag)) {
-          return row
+          return row;
         }
       }
-    })
-    filteredView = filteredArray
-    return
+    });
+    filteredView = filteredArray;
+    return;
   }
 
   function clearAllFilters() {
-    filteredView = rows
+    filteredView = rows;
   }
 
   function instagramValueText(value) {
-    return `${value}K`
+    return `${value}K`;
   }
 
   function removeTag(tag) {
     setFilters(
       filters.filter((existingTag) => {
         if (tag !== existingTag) {
-          return tag
+          return tag;
         }
       })
-    )
+    );
   }
 
-  const [filters, setFilters] = useState([])
+  const [filters, setFilters] = useState([]);
   const [centralFilters, setCentralFilters] = useState({
     tags: [],
     countries: [],
     languages: [],
     instagram: { min: 0, max: 10000000 },
-  })
+  });
 
-  const [languages, setLanguages] = useState([])
-  const [countires, setCountries] = useState([])
+  const [languages, setLanguages] = useState([]);
+  const [countires, setCountries] = useState([]);
 
-  const [tagSelect, setTagSelect] = useState("")
-  const [instagramFollowers, setInstagramFollowers] = useState([0, 10000000])
-  const [youtubeSubscribers, setYoutubeSubscribers] = useState([0, 10000000])
+  const [tagSelect, setTagSelect] = useState("");
+  const [instagramFollowers, setInstagramFollowers] = useState([0, 10000000]);
+  const [youtubeSubscribers, setYoutubeSubscribers] = useState([0, 10000000]);
 
-  const classes = useStyles()
-  const [order, setOrder] = useState("asc")
-  const [orderBy, setOrderBy] = useState("calories")
-  const [selected, setSelected] = useState([])
-  const [page, setPage] = useState(0)
-  const [dense, setDense] = useState(false)
-  const [rowsPerPage, setRowsPerPage] = useState(5)
+  const classes = useStyles();
+  const [order, setOrder] = useState("asc");
+  const [orderBy, setOrderBy] = useState("calories");
+  const [selected, setSelected] = useState([]);
+  const [page, setPage] = useState(0);
+  const [dense, setDense] = useState(false);
+  const [rowsPerPage, setRowsPerPage] = useState(5);
 
   function handleInstagramFollowersChange(e, newValue) {
-    setInstagramFollowers(newValue)
+    setInstagramFollowers(newValue);
   }
 
   const handleRequestSort = (event, property) => {
-    const isAsc = orderBy === property && order === "asc"
-    setOrder(isAsc ? "desc" : "asc")
-    setOrderBy(property)
-    console.log(centralFilters)
-  }
+    const isAsc = orderBy === property && order === "asc";
+    setOrder(isAsc ? "desc" : "asc");
+    setOrderBy(property);
+    console.log(centralFilters);
+  };
 
   const handleSelectAllClick = (event) => {
     if (event.target.checked) {
-      const newSelecteds = rows.map((n) => n.name)
-      setSelected(newSelecteds)
-      return
+      const newSelecteds = rows.map((n) => n.name);
+      setSelected(newSelecteds);
+      return;
     }
-    setSelected([])
-  }
+    setSelected([]);
+  };
 
   const handleClick = (event, name) => {
-    const selectedIndex = selected.indexOf(name)
-    let newSelected = []
+    const selectedIndex = selected.indexOf(name);
+    let newSelected = [];
 
     if (selectedIndex === -1) {
-      newSelected = newSelected.concat(selected, name)
+      newSelected = newSelected.concat(selected, name);
     } else if (selectedIndex === 0) {
-      newSelected = newSelected.concat(selected.slice(1))
+      newSelected = newSelected.concat(selected.slice(1));
     } else if (selectedIndex === selected.length - 1) {
-      newSelected = newSelected.concat(selected.slice(0, -1))
+      newSelected = newSelected.concat(selected.slice(0, -1));
     } else if (selectedIndex > 0) {
       newSelected = newSelected.concat(
         selected.slice(0, selectedIndex),
         selected.slice(selectedIndex + 1)
-      )
+      );
     }
 
-    setSelected(newSelected)
-  }
+    setSelected(newSelected);
+  };
 
   const handleChangePage = (event, newPage) => {
-    setPage(newPage)
-  }
+    setPage(newPage);
+  };
 
   const handleChangeRowsPerPage = (event) => {
-    setRowsPerPage(parseInt(event.target.value, 10))
-    setPage(0)
-  }
+    setRowsPerPage(parseInt(event.target.value, 10));
+    setPage(0);
+  };
 
   const handleChangeDense = (event) => {
-    setDense(event.target.checked)
-  }
+    setDense(event.target.checked);
+  };
 
-  const isSelected = (name) => selected.indexOf(name) !== -1
+  const isSelected = (name) => selected.indexOf(name) !== -1;
 
   const emptyRows =
-    rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage)
+    rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
 
   return (
     <>
@@ -436,7 +436,7 @@ export default function EnhancedTable() {
       />
       <button
         onClick={() => {
-          setFilters([...filters, tagSelect])
+          setFilters([...filters, tagSelect]);
         }}
       >
         Add
@@ -502,8 +502,8 @@ export default function EnhancedTable() {
                 {stableSort(rows, getComparator(order, orderBy))
                   .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                   .map((row, index) => {
-                    const isItemSelected = isSelected(row.name)
-                    const labelId = `enhanced-table-checkbox-${index}`
+                    const isItemSelected = isSelected(row.name);
+                    const labelId = `enhanced-table-checkbox-${index}`;
 
                     return (
                       <TableRow
@@ -536,7 +536,7 @@ export default function EnhancedTable() {
                         <TableCell align="right">{row.tags}</TableCell>
                         <TableCell align="right">{row.country}</TableCell>
                       </TableRow>
-                    )
+                    );
                   })}
                 {emptyRows > 0 && (
                   <TableRow style={{ height: (dense ? 33 : 53) * emptyRows }}>
@@ -562,5 +562,5 @@ export default function EnhancedTable() {
         />
       </div>
     </>
-  )
+  );
 }

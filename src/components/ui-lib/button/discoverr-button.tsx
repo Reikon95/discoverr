@@ -1,6 +1,6 @@
-import React from "react"
-import { useState } from "react"
-import Button from "@material-ui/core/Button"
+import React from "react";
+import { useState } from "react";
+import Button from "@material-ui/core/Button";
 
 export default function DiscoverrButton({ img, dealCode, store }) {
   //   const [open, setOpen] = useState(false)
@@ -13,5 +13,5 @@ export default function DiscoverrButton({ img, dealCode, store }) {
   //     setOpen(false)
   //   }
 
-  return <Button></Button>
+  return <Button></Button>;
 }
