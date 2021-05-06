@@ -1,25 +1,25 @@
-import "./_variables.scss"
-import "./App.scss"
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom"
-import ShowcasePage from "./components/showcase-page/showcase-page.tsx"
-import SignUp from "./components/signup/signup"
-import SignUpOffers from "./components/signup/signUpOffers"
-import { makeStyles } from "@material-ui/core/styles"
-import AppBar from "@material-ui/core/AppBar"
-import Toolbar from "@material-ui/core/Toolbar"
-import Typography from "@material-ui/core/Typography"
-import Button from "@material-ui/core/Button"
-import IconButton from "@material-ui/core/IconButton"
-import MenuIcon from "@material-ui/icons/Menu"
+import "./_variables.scss";
+import "./App.scss";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import ShowcasePage from "./components/showcase-page/showcase-page.tsx";
+import SignUp from "./components/signup/signup";
+import SignUpOffers from "./components/signup/signUpOffers";
+import { makeStyles } from "@material-ui/core/styles";
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import Typography from "@material-ui/core/Typography";
+import Button from "@material-ui/core/Button";
+import IconButton from "@material-ui/core/IconButton";
+import MenuIcon from "@material-ui/icons/Menu";
 // import ProfilePage from "./components/profile-page/profile-page"
-import EnhancedTable from "./components/index-table.tsx"
-import { UserProvider } from "./StateContext"
-import LandingPage from "./components/landing-page/landing-page"
-import Amplify from 'aws-amplify'
-import awsconfig from './aws-exports'
-import { AmplifySignOut, withAuthenticator} from '@aws-amplify/ui-react'
+import EnhancedTable from "./components/index-table.tsx";
+import { UserProvider } from "./StateContext";
+import LandingPage from "./components/landing-page/landing-page";
+import Amplify from "aws-amplify";
+import awsconfig from "./aws-exports";
+import { AmplifySignOut, withAuthenticator } from "@aws-amplify/ui-react";
 
-Amplify.configure(awsconfig)
+Amplify.configure(awsconfig);
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -31,9 +31,9 @@ const useStyles = makeStyles((theme) => ({
   title: {
     flexGrow: 1,
   },
-}))
+}));
 function App() {
-  const classes = useStyles()
+  const classes = useStyles();
 
   return (
     <UserProvider>
@@ -65,7 +65,7 @@ function App() {
                 <EnhancedTable />
               </Route>
               <Route path="/showcase">
-                <AmplifySignOut/>
+                <AmplifySignOut />
                 <ShowcasePage
                   name="Barney Banks"
                   deals={[
@@ -136,7 +136,7 @@ function App() {
         </Router>
       </div>
     </UserProvider>
-  )
+  );
 }
 
 function Home() {
@@ -157,7 +157,7 @@ function Home() {
       <Link to="/showcase">Barney Example Page</Link>
       <Link to="/landing">Landing Page</Link>
     </div>
-  )
+  );
 }
 
-export default withAuthenticator(App)
+export default withAuthenticator(App);
