@@ -15,6 +15,11 @@ import MenuIcon from "@material-ui/icons/Menu"
 import EnhancedTable from "./components/index-table.tsx"
 import { UserProvider } from "./StateContext"
 import LandingPage from "./components/landing-page/landing-page"
+import Amplify from 'aws-amplify'
+import awsconfig from './aws-exports'
+import { AmplifySignOut, withAuthenticator} from '@aws-amplify/ui-react'
+
+Amplify.configure(awsconfig)
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -60,6 +65,7 @@ function App() {
                 <EnhancedTable />
               </Route>
               <Route path="/showcase">
+                <AmplifySignOut/>
                 <ShowcasePage
                   name="Barney Banks"
                   deals={[
@@ -154,4 +160,4 @@ function Home() {
   )
 }
 
-export default App
+export default withAuthenticator(App)
