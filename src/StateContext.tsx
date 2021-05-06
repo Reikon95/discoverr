@@ -8,6 +8,7 @@ export const UserProvider = ({ children }) => {
   const [name, setName] = useState("")
   const [tagline, setTagline] = useState("")
   const [bio, setBio] = useState("")
+  const [offers, setOffers] = useState([])
 
   return (
     <UserContext.Provider
@@ -16,10 +17,12 @@ export const UserProvider = ({ children }) => {
         tagline,
         signedIn,
         bio,
+        offers,
         setName,
         setTagline,
         setSignedIn,
         setBio,
+        setOffers
       }}
     >
       {children}
