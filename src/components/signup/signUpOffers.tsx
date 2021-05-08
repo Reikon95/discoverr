@@ -37,11 +37,9 @@ export default function SignUpOffers() {
   // for each input field generated, add another object into the offers
 
   const modifyOffers = (ev, indx, isName) => {
-    console.log(ev, indx)
     isName ?
     offers[indx].name  = ev :
     offers[indx].offer  = ev 
-    console.log(offers)
   } 
 
   return (
