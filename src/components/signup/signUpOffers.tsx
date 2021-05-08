@@ -20,19 +20,29 @@ export default function SignUpOffers() {
   const user = useContext(UserContext);
   const history = useHistory();
 
-  const [offers, setOffers] = useState([]);
-  const [inputs, setInputs] = useState([]);
+  const [offers, setOffers] = useState([{name: '', offer: ''}]);
+  const [inputs, setInputs] = useState([0]);
 
   const addAnother = (): any => {
-    setInputs([...inputs, "input"]);
-    console.log(inputs);
+    setInputs([...inputs, inputs.length]);
+    setOffers([...offers, {name: '', offer: ''}])
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     user.setOffers([]);
-    history.push("/signup2");
+    history.push("/showcase");
   };
+
+  // for each input field generated, add another object into the offers
+
+  const modifyOffers = (ev, indx, isName) => {
+    console.log(ev, indx)
+    isName ?
+    offers[indx].name  = ev :
+    offers[indx].offer  = ev 
+    console.log(offers)
+  } 
 
   return (
     <>
@@ -45,10 +55,20 @@ export default function SignUpOffers() {
       <form onSubmit={handleSubmit}>
         {inputs.map((i) => (
           <div className="offer-signup-wrapper">
-            <InputLabel>Company</InputLabel>{" "}
-            <Input type="text" required={false}></Input>
+                      <FormControl>
+
+            <InputLabel>Company:</InputLabel>{" "}
+            <Input type="text" required={false}      onChange={(e) =>
+                modifyOffers(e.target.value, i, true)
+              }></Input>
+            </FormControl>
+
+            <FormControl>
+
             <InputLabel>Enter The Deal:</InputLabel>
             <Input type="text" required={true}></Input>
+            </FormControl>
+
           </div>
         ))}
 
