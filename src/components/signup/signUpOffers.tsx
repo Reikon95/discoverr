@@ -66,8 +66,9 @@ export default function SignUpOffers() {
             <FormControl>
 
             <InputLabel>Enter The Deal:</InputLabel>
-            <Input type="text" required={true}></Input>
-            </FormControl>
+            <Input type="text" required={false}      onChange={(e) =>
+                modifyOffers(e.target.value, i, false)
+              }></Input>            </FormControl>
 
           </div>
         ))}
