@@ -1,0 +1,28 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+* {
+  font-family: "Roboto", sans-serif;
+}
+
+.App {
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+}
+
+.global-navbar {
+  background-color: #00464c;
+}
+
+.three-column-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-items: center;
+}
+
+.vertical-stack {
+  display: flex;
+  flex-direction: column;
+}
