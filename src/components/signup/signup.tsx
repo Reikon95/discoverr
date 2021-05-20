@@ -1,28 +1,29 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext, useEffect } from "react"
 import {
   Input,
   InputLabel,
   FormControl,
   FormHelperText,
-} from "@material-ui/core";
-import { useHistory } from "react-router-dom";
-import "./signup.scss";
-import TextField from "@material-ui/core/TextField";
-import Autocomplete from "@material-ui/lab/Autocomplete";
-import Button from "@material-ui/core/Button";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import { UserProvider, UserContext } from "../../StateContext";
+} from "@material-ui/core"
+import { useHistory } from "react-router-dom"
+import "./signup.scss"
+import TextField from "@material-ui/core/TextField"
+import Autocomplete from "@material-ui/lab/Autocomplete"
+import Button from "@material-ui/core/Button"
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom"
+import { UserProvider, UserContext } from "../../StateContext"
 
 export default function SignUp() {
-  const user = useContext(UserContext);
-  const history = useHistory();
+  const user = useContext(UserContext)
+  const history = useHistory()
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    user.setName(userDetails.name);
-    user.setSignedIn(true);
-    history.push("/signup2");
-  };
+    e.preventDefault()
+    user.setName(userDetails.name)
+    user.setBio(userDetails.bio)
+    user.setSignedIn(true)
+    history.push("/signup2")
+  }
 
   const [userDetails, setUserDetails] = useState({
     name: null,
@@ -34,7 +35,7 @@ export default function SignUp() {
     facebook: null,
     twitter: null,
     youtube: null,
-  });
+  })
   return (
     <>
       <h1>Welcome to Discoverr.</h1>
@@ -172,5 +173,5 @@ export default function SignUp() {
         />
       </form>
     </>
-  );
+  )
 }
