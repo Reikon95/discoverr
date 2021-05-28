@@ -6,6 +6,7 @@ import Button from "@material-ui/core/Button"
 import { UserProvider, UserContext } from "../../StateContext"
 import { GoogleLogin } from "react-google-login"
 import Icon from './icon';
+import axios from "axios"
 
 
 export default function SocialSignUp() {
@@ -21,11 +22,13 @@ export default function SocialSignUp() {
   }
 
   const googleSuccess = async (res) => {
-    console.log('suc')
-    const result = res?.porfileObj
+    const googleProfileDetails = res?.profileObj
     const token = res?.tokenId
-
-    console.log(res)
+    try {
+        console.log(googleProfileDetails)
+    } catch (error) {
+        console.log(error);
+      }
   }
 
   const googleFailure = (err) => {
