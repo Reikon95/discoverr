@@ -13,6 +13,8 @@ import Button from "@material-ui/core/Button"
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom"
 import { UserProvider, UserContext } from "../../StateContext"
 import { GoogleLogin } from "react-google-login"
+import Icon from './icon';
+
 
 export default function SignUp() {
   const user = useContext(UserContext)
@@ -26,12 +28,17 @@ export default function SignUp() {
     history.push("/signup2")
   }
 
-  const googleSuccess = () => {
+  const googleSuccess = async (res) => {
+    console.log('suc')
+    const result = res?.porfileObj
+    const token = res?.tokenId
 
+    console.log(res)
   }
 
-  const googleFailure = () => {
-    
+  const googleFailure = (err) => {
+    console.log('fail')
+    console.log(err)
   }
 
   const [userDetails, setUserDetails] = useState({
@@ -49,7 +56,7 @@ export default function SignUp() {
     <>
       <h1>Welcome to Discoverr.</h1>
       <GoogleLogin
-      clientId="google id here"
+      clientId="799834232045-neeue9a687vpb3q9d6ff4u7jamtl1d16.apps.googleusercontent.com"
       render={(renderProps) => {
         return (
           <Button className="google-button" color="primary" onClick={renderProps.onClick} disabled={renderProps.disabled} startIcon={<Icon/>} variant="contained">
