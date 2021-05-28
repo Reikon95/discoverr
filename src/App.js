@@ -1,6 +1,7 @@
 import "./_variables.scss"
 import "./App.scss"
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
+import NavBar from "./components/navbar/navbar.tsx"
 import ShowcasePage from "./components/showcase-page/showcase-page.tsx"
 import SocialSignUp from "./components/auth/socialSignIn.tsx"
 import SignUp from "./components/signup/signup"
@@ -20,12 +21,7 @@ export default function App() {
     <UserProvider>
       <div className="App">
         <div>
-          <AppBar position="static" className="global-navbar">
-            <Toolbar className="global-navbar">
-              <Typography variant="h6">DISCOVERR</Typography>
-              <Button color="inherit">ACCOUNT</Button>
-            </Toolbar>
-          </AppBar>
+          <NavBar />
         </div>
         <Router>
           <div>
