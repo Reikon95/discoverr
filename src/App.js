@@ -1,24 +1,21 @@
-import "./_variables.scss";
-import "./App.scss";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import ShowcasePage from "./components/showcase-page/showcase-page.tsx";
-import SocialSignUp from "./components/auth/socialSignIn.tsx";
-
-import SignUp from "./components/signup/signup";
-import SignUpOffers from "./components/signup/signUpOffers";
-import { makeStyles } from "@material-ui/core/styles";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
-import Button from "@material-ui/core/Button";
-import IconButton from "@material-ui/core/IconButton";
-import MenuIcon from "@material-ui/icons/Menu";
+import "./_variables.scss"
+import "./App.scss"
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom"
+import ShowcasePage from "./components/showcase-page/showcase-page.tsx"
+import SocialSignUp from "./components/auth/socialSignIn.tsx"
+import SignUp from "./components/signup/signup"
+import SignUpOffers from "./components/signup/signUpOffers"
+import { makeStyles } from "@material-ui/core/styles"
+import AppBar from "@material-ui/core/AppBar"
+import Toolbar from "@material-ui/core/Toolbar"
+import Typography from "@material-ui/core/Typography"
+import Button from "@material-ui/core/Button"
+import IconButton from "@material-ui/core/IconButton"
+import MenuIcon from "@material-ui/icons/Menu"
 // import ProfilePage from "./components/profile-page/profile-page"
-import EnhancedTable from "./components/index-table.tsx";
-import { UserProvider } from "./StateContext";
-import LandingPage from "./components/landing-page/landing-page";
-
-
+import EnhancedTable from "./components/index-table.tsx"
+import { UserProvider } from "./StateContext"
+import LandingPage from "./components/landing-page/landing-page"
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -30,9 +27,9 @@ const useStyles = makeStyles((theme) => ({
   title: {
     flexGrow: 1,
   },
-}));
+}))
 export default function App() {
-  const classes = useStyles();
+  const classes = useStyles()
 
   return (
     <UserProvider>
@@ -124,7 +121,7 @@ export default function App() {
                 <SignUpOffers />
               </Route>
               <Route path="/social-signup">
-                <SocialSignUp/>
+                <SocialSignUp />
               </Route>
               <Route path="/landing">
                 <LandingPage />
@@ -138,7 +135,7 @@ export default function App() {
         </Router>
       </div>
     </UserProvider>
-  );
+  )
 }
 
 function Home() {
@@ -159,6 +156,5 @@ function Home() {
       <Link to="/showcase">Barney Example Page</Link>
       <Link to="/landing">Landing Page</Link>
     </div>
-  );
+  )
 }
-
