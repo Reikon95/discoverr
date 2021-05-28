@@ -38,9 +38,12 @@ export default function SignUpOffers() {
       name: user.name,
       bio: user.bio,
     }
-    axios
-      .post("http://localhost:5000/users/adduser", userPayload)
-      .then((res) => console.log(res.data))
+    // axios
+    //   .post("http://localhost:5000/users/adduser", userPayload)
+    //   .then((res) => console.log(res.data))
+    console.log(userPayload)
+    // this needs to be updated. We need to change it to a PUT request, so that 
+    // if the user already exists, we DO NOT create a dupe account.
     history.push("/showcase")
   }
 

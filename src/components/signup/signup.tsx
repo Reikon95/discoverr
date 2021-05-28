@@ -27,19 +27,6 @@ export default function SignUp() {
     history.push("/signup-step-2")
   }
 
-  const googleSuccess = async (res) => {
-    console.log('suc')
-    const result = res?.porfileObj
-    const token = res?.tokenId
-
-    console.log(res)
-  }
-
-  const googleFailure = (err) => {
-    console.log('fail')
-    console.log(err)
-  }
-
   const [userDetails, setUserDetails] = useState({
     name: null,
     age: null,

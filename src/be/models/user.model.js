@@ -12,8 +12,30 @@ const userSchema = new Schema({
   bio: {
     type: String,
   },
+  email: {
+    type: String,
+  },
+  familyName: {
+    type: String,
+  },
+  givenName: {
+    type: String,
+  },
+  googleId: {
+    type: String,
+  },
+  imageUrl: {
+    type: String,
+  }
 })
 
 const User = mongoose.model("User", userSchema)
 
 module.exports = User
+
+
+// familyName: 
+// givenName: 
+// googleId: 
+// imageUrl: 
+// name: 
