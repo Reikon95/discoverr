@@ -2,6 +2,8 @@ import "./_variables.scss";
 import "./App.scss";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import ShowcasePage from "./components/showcase-page/showcase-page.tsx";
+import SocialSignUp from "./components/auth/socialSignIn.tsx";
+
 import SignUp from "./components/signup/signup";
 import SignUpOffers from "./components/signup/signUpOffers";
 import { makeStyles } from "@material-ui/core/styles";
@@ -121,9 +123,13 @@ export default function App() {
               <Route path="/signup2">
                 <SignUpOffers />
               </Route>
+              <Route path="/social-signup">
+                <SocialSignUp/>
+              </Route>
               <Route path="/landing">
                 <LandingPage />
               </Route>
+
               <Route path="/">
                 <Home />
               </Route>
