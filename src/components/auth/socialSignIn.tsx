@@ -25,7 +25,7 @@ export default function SocialSignUp() {
     try {
         console.log(googleProfileDetails)
         axios
-        .post("http://localhost:5000/users/adduser", googleProfileDetails)
+        .post("http://localhost:5000/users/addgoogleuser", googleProfileDetails)
         .then((res) => console.log(res.data))
     } catch (error) {
         console.log(error);
