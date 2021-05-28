@@ -80,6 +80,7 @@ export default function SignUp() {
               }
               multiline={true}
               rows={4}
+              className="user-bio-field"
             ></TextField>
             <FormHelperText>
               This is your bio - tell us a bit about yourself! This is what your
