@@ -24,7 +24,7 @@ export default function SignUp() {
     user.setName(userDetails.name)
     user.setBio(userDetails.bio)
     user.setSignedIn(true)
-    history.push("/signup2")
+    history.push("/signup-step-2")
   }
 
   const googleSuccess = async (res) => {

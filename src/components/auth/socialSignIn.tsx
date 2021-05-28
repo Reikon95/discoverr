@@ -17,7 +17,7 @@ export default function SocialSignUp() {
     // user.setName(userDetails.name)
     // user.setBio(userDetails.bio)
     // user.setSignedIn(true)
-    history.push("/signup")
+    history.push("/signup-step-1")
   }
 
   const googleSuccess = async (res) => {

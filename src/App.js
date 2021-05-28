@@ -117,10 +117,10 @@ export default function App() {
                   such as The Protein Works! Thank you for the support, BOSH!"
                 />
               </Route>
-              <Route path="/signup">
+              <Route path="/signup-step-1">
                 <SignUp />
               </Route>
-              <Route path="/signup2">
+              <Route path="/signup-step-2">
                 <SignUpOffers />
               </Route>
               <Route path="/social-signup">
