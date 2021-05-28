@@ -12,6 +12,7 @@ import Autocomplete from "@material-ui/lab/Autocomplete"
 import Button from "@material-ui/core/Button"
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom"
 import { UserProvider, UserContext } from "../../StateContext"
+import { GoogleLogin } from "react-google-login"
 
 export default function SignUp() {
   const user = useContext(UserContext)
@@ -23,6 +24,14 @@ export default function SignUp() {
     user.setBio(userDetails.bio)
     user.setSignedIn(true)
     history.push("/signup2")
+  }
+
+  const googleSuccess = () => {
+
+  }
+
+  const googleFailure = () => {
+    
   }
 
   const [userDetails, setUserDetails] = useState({
@@ -39,6 +48,21 @@ export default function SignUp() {
   return (
     <>
       <h1>Welcome to Discoverr.</h1>
+      <GoogleLogin
+      clientId="google id here"
+      render={(renderProps) => {
+        return (
+          <Button className="google-button" color="primary" onClick={renderProps.onClick} disabled={renderProps.disabled} startIcon={<Icon/>} variant="contained">
+
+            Google Sign In
+
+          </Button>
+        )
+      }}
+      onSuccess={googleSuccess}
+      onFailure={googleFailure}
+      cookiePolicy="single_host_origin"
+      />
       <p>
         Tell us about you here. Remember, the more information the add, the
         better your profile will be!
