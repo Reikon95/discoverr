@@ -26,16 +26,9 @@ const userSchema = new Schema({
   },
   imageUrl: {
     type: String,
-  }
+  },
 })
 
 const User = mongoose.model("User", userSchema)
 
 module.exports = User
-
-
-// familyName: 
-// givenName: 
-// googleId: 
-// imageUrl: 
-// name: 
