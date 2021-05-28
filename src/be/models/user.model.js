@@ -27,6 +27,9 @@ const userSchema = new Schema({
   imageUrl: {
     type: String,
   },
+  verified: {
+    type: Boolean,
+  },
 })
 
 const User = mongoose.model("User", userSchema)

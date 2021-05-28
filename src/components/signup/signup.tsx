@@ -8,12 +8,8 @@ import {
 import { useHistory } from "react-router-dom"
 import "./signup.scss"
 import TextField from "@material-ui/core/TextField"
-import Autocomplete from "@material-ui/lab/Autocomplete"
-import Button from "@material-ui/core/Button"
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom"
 import { UserProvider, UserContext } from "../../StateContext"
 import { GoogleLogin } from "react-google-login"
-
 
 export default function SignUp() {
   const user = useContext(UserContext)
@@ -75,19 +71,7 @@ export default function SignUp() {
               You currently must be at least 18 years old to use Discoverr.
             </FormHelperText>
           </FormControl>
-          <FormControl>
-            <TextField
-              type="email"
-              onChange={(e) =>
-                setUserDetails({ ...userDetails, email: e.target.value })
-              }
-              placeholder="Your email"
-            />
 
-            <FormHelperText>
-              This is for us to contact you, it isn't public.
-            </FormHelperText>
-          </FormControl>
           <FormControl>
             <TextField
               placeholder="A bit about me!"

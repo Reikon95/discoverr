@@ -10,55 +10,20 @@ export default function SocialSignUp() {
   const user = useContext(UserContext)
   const history = useHistory()
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-
-    history.push("/signup-step-1")
-  }
-
-  const isEmailDuplicate = (email) => {
-    console.log(email)
-    return axios
-      .get("http://localhost:5000/users/finduseremail", email)
-      .then((res) => {
-        return res.data
-      })
-    // if (dupeEmail) {
-    //   // console.log(dupeEmail)
-    //   console.log(dupeEmail, true)
-    // } else {
-    //   console.log(dupeEmail, false)
-    // }
-  }
-
   const googleSuccess = async (res) => {
     const googleProfileDetails = res?.profileObj
     const token = res?.tokenId
-
-    isEmailDuplicate(googleProfileDetails).then((data) => {
-      console.log(data)
-      if (data && data.length > 0) {
-        console.log(data)
-        return
-      } else {
-        try {
-          axios
-            .post(
-              "http://localhost:5000/users/addgoogleuser",
-              googleProfileDetails
-            )
-            .then((res) => console.log(res.data))
-          history.push("/signup-step-1")
-        } catch (error) {
-          console.log(error)
-        }
-      }
-    })
+    try {
+      axios
+        .post("http://localhost:5000/users/addgoogleuser", googleProfileDetails)
+        .then((res) => console.log(res.data))
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   const googleFailure = (err) => {
     console.log("fail")
-    console.log(err)
   }
 
   return (
