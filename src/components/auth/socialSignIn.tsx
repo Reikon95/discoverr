@@ -15,9 +15,7 @@ export default function SocialSignUp() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    // user.setName(userDetails.name)
-    // user.setBio(userDetails.bio)
-    // user.setSignedIn(true)
+
     history.push("/signup-step-1")
   }
 
@@ -26,9 +24,12 @@ export default function SocialSignUp() {
     const token = res?.tokenId
     try {
         console.log(googleProfileDetails)
+        axios
+        .post("http://localhost:5000/users/adduser", googleProfileDetails)
+        .then((res) => console.log(res.data))
     } catch (error) {
         console.log(error);
-      }
+    }
   }
 
   const googleFailure = (err) => {
