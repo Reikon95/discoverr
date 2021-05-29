@@ -79,7 +79,7 @@ export default function App() {
                   tags={["Content Creator", "Model", "Streamer"]}
                   bio="Hi Guys! Welcome to my Discoverr showcase. I am Barney Banks, a UK based
                   Content creator, gamer, model, and all round legend. Check out my
-                  socials below as well as the discounts i have with my trusted brands
+                  socials below as well as the discounts I have with my trusted brands
                   such as The Protein Works! Thank you for the support, BOSH!"
                 />
               </Route>

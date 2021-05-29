@@ -46,4 +46,10 @@ router.route("/addgoogleuser").post((req, res) => {
     .catch((err) => res.status(400).json("Error: " + err))
 })
 
+router.route("/updateuserdetails").get((req, res) => {
+  User.updateOne({ email: req.email }, { bio: req.bio }).then((users) =>
+    res.json(users)
+  )
+})
+
 module.exports = router
