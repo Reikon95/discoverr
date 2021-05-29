@@ -30,6 +30,7 @@ export default function SignUpOffers() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    console.log(user)
     // user.setOffers([]);
     const userPayload = {
       id: Math.random() * 100,

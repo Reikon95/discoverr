@@ -9,7 +9,7 @@ router.route("/").get((req, res) => {
 })
 
 router.route("/finduseremail").get((req, res) => {
-  User.find({ email: req.email }).then((users) => res.json(users))
+  User.find({ email: req.body.email }).then((users) => res.json(users))
 })
 
 router.route("/adduser").post((req, res) => {

@@ -1,14 +1,15 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useState } from "react"
 
-export const UserContext = createContext(null);
+export const UserContext = createContext(null)
 
 // This context provider is passed to any component requiring the context
 export const UserProvider = ({ children }) => {
-  const [signedIn, setSignedIn] = useState(false);
-  const [name, setName] = useState("");
-  const [tagline, setTagline] = useState("");
-  const [bio, setBio] = useState("");
-  const [offers, setOffers] = useState([]);
+  const [signedIn, setSignedIn] = useState(false)
+  const [name, setName] = useState("")
+  const [tagline, setTagline] = useState("")
+  const [bio, setBio] = useState("")
+  const [offers, setOffers] = useState([])
+  const [email, setEmail] = useState("")
 
   return (
     <UserContext.Provider
@@ -18,6 +19,8 @@ export const UserProvider = ({ children }) => {
         signedIn,
         bio,
         offers,
+        email,
+        setEmail,
         setName,
         setTagline,
         setSignedIn,
@@ -27,5 +30,5 @@ export const UserProvider = ({ children }) => {
     >
       {children}
     </UserContext.Provider>
-  );
-};
+  )
+}
