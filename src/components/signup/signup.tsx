@@ -9,7 +9,7 @@ import { useHistory } from "react-router-dom"
 import "./signup.scss"
 import TextField from "@material-ui/core/TextField"
 import { UserProvider, UserContext } from "../../StateContext"
-import { GoogleLogin } from "react-google-login"
+import axios from "axios"
 
 export default function SignUp() {
   const user = useContext(UserContext)
@@ -20,6 +20,17 @@ export default function SignUp() {
     user.setName(userDetails.name)
     user.setBio(userDetails.bio)
     user.setSignedIn(true)
+
+    // the below is commented out, because we require the token to be set up
+    // the reason for this is the token is controlling what the email is.
+
+    // try {
+    //   axios
+    //     .post("http://localhost:5000/users/updateuserdetails", userDetails)
+    //     .then((res) => console.log(res.data))
+    // } catch (error) {
+    //   console.log(error)
+    // }
     history.push("/signup-step-2")
   }
 
@@ -27,7 +38,6 @@ export default function SignUp() {
     name: null,
     age: null,
     bio: "",
-    email: "",
     instagram: null,
     tiktok: null,
     facebook: null,
