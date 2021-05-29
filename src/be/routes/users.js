@@ -8,9 +8,19 @@ router.route("/").get((req, res) => {
     .catch((err) => res.status(400).json("Error: " + err))
 })
 
-router.route("/finduseremail").get((req, res) => {
+export const isUserDuplicate = async (req, res) => {
   User.find({ email: req.body.email }).then((users) => res.json(users))
-})
+  try {
+    const returnedEmail = await User.find({ email: req.body.email })
+    res.status(200).json(returnedEmail)
+  } catch (error) {
+    res.status(404).json({ message: error.message })
+  }
+}
+
+// router.route("/finduseremail").get((req, res) => {
+//   User.find({ email: req.body.email }).then((users) => res.json(users))
+// })
 
 router.route("/adduser").post((req, res) => {
   const reqBody = req.body
