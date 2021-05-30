@@ -30,7 +30,7 @@ router.route("/adduser").post((req, res) => {
     .catch((err) => res.status(400).json("Error: " + err))
 })
 
-router.route("/addgoogleuser").post((req, res) => {
+router.route("/addgoogleuser").post(async (req, res) => {
   const newGoogleUser = new User({
     name: req.body.name,
     email: req.body.email,
@@ -39,11 +39,14 @@ router.route("/addgoogleuser").post((req, res) => {
     googleId: req.body.googleId,
     imageUrl: req.body.imageUrl,
   })
-
-  newGoogleUser
-    .save()
-    .then(() => res.json("GOOGLE User registered"))
-    .catch((err) => res.status(400).json("Error: " + err))
+  const duplicate = await User.findOne({ email: newGoogleUser.email })
+  console.log(duplicate)
+  if (!duplicate) {
+    newGoogleUser
+      .save()
+      .then(() => res.json("GOOGLE User registered"))
+      .catch((err) => res.status(400).json("Error: " + err))
+  }
 })
 
 router.route("/updateuserdetails").get((req, res) => {

@@ -13,6 +13,12 @@ export default function SocialSignUp() {
   const googleSuccess = async (res) => {
     const googleProfileDetails = res?.profileObj
     const token = res?.tokenId
+    // try {
+
+    // }
+    // catch {
+
+    // }
     try {
       axios
         .post("http://localhost:5000/users/addgoogleuser", googleProfileDetails)
@@ -43,6 +49,26 @@ export default function SocialSignUp() {
               variant="contained"
             >
               Google Sign In
+            </Button>
+          )
+        }}
+        onSuccess={googleSuccess}
+        onFailure={googleFailure}
+        cookiePolicy="single_host_origin"
+      />
+      <GoogleLogin
+        clientId="799834232045-neeue9a687vpb3q9d6ff4u7jamtl1d16.apps.googleusercontent.com"
+        render={(renderProps) => {
+          return (
+            <Button
+              className="google-button"
+              color="primary"
+              onClick={renderProps.onClick}
+              disabled={renderProps.disabled}
+              startIcon={<Icon />}
+              variant="contained"
+            >
+              Google Sign Up
             </Button>
           )
         }}
