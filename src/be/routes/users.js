@@ -49,10 +49,12 @@ router.route("/addgoogleuser").post(async (req, res) => {
   }
 })
 
-router.route("/updateuserdetails").get((req, res) => {
-  User.updateOne({ email: req.email }, { bio: req.bio }).then((users) =>
-    res.json(users)
-  )
+router.route("/updateuserdetails").post((req, res) => {
+  console.log(req)
+  User.updateOne(
+    { email: req.body.email },
+    { bio: req.body.bio }
+  ).then((users) => res.json(users))
 })
 
 module.exports = router
