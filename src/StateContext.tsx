@@ -25,7 +25,7 @@ export const UserProvider = ({ children }) => {
         googleToken,
         email,
         setName,
-        setEmail
+        setEmail,
         setTagline,
         setSignedIn,
         setBio,
