@@ -13,12 +13,6 @@ export default function SocialSignUp() {
   const googleSuccess = async (res) => {
     const googleProfileDetails = res?.profileObj
     const token = res?.tokenId
-    // try {
-
-    // }
-    // catch {
-
-    // }
     try {
       axios
         .post("http://localhost:5000/users/addgoogleuser", googleProfileDetails)
@@ -26,6 +20,7 @@ export default function SocialSignUp() {
     } catch (error) {
       console.log(error)
     }
+    user.setEmail(googleProfileDetails.email)
   }
 
   const googleFailure = (err) => {

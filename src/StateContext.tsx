@@ -6,6 +6,7 @@ export const UserContext = createContext(null)
 export const UserProvider = ({ children }) => {
   const [signedIn, setSignedIn] = useState(false)
   const [name, setName] = useState("")
+  const [email, setEmail] = useState("")
   const [tagline, setTagline] = useState("")
   const [bio, setBio] = useState("")
   const [offers, setOffers] = useState([])
@@ -22,7 +23,9 @@ export const UserProvider = ({ children }) => {
         bio,
         offers,
         googleToken,
+        email,
         setName,
+        setEmail
         setTagline,
         setSignedIn,
         setBio,

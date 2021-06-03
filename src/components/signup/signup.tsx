@@ -19,18 +19,17 @@ export default function SignUp() {
     e.preventDefault()
     user.setName(userDetails.name)
     user.setBio(userDetails.bio)
+    userDetails.email = user.email
     user.setSignedIn(true)
+    console.log(userDetails)
+    try {
+      axios
+        .post("http://localhost:5000/users/updateuserdetails", userDetails)
+        .then((res) => console.log(res.data))
+    } catch (error) {
+      console.log(error)
+    }
 
-    // the below is commented out, because we require the token to be set up
-    // the reason for this is the token is controlling what the email is.
-
-    // try {
-    //   axios
-    //     .post("http://localhost:5000/users/updateuserdetails", userDetails)
-    //     .then((res) => console.log(res.data))
-    // } catch (error) {
-    //   console.log(error)
-    // }
     history.push("/signup-step-2")
   }
 
@@ -43,6 +42,7 @@ export default function SignUp() {
     facebook: null,
     twitter: null,
     youtube: null,
+    email: user.email,
   })
   return (
     <>
