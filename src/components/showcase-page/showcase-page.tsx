@@ -1,20 +1,21 @@
-import React from "react";
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import Button from "@material-ui/core/Button";
-import TextField from "@material-ui/core/TextField";
-import Dialog from "@material-ui/core/Dialog";
-import DialogActions from "@material-ui/core/DialogActions";
-import DialogContent from "@material-ui/core/DialogContent";
-import DialogContentText from "@material-ui/core/DialogContentText";
-import DialogTitle from "@material-ui/core/DialogTitle";
-import InstagramIcon from "@material-ui/icons/Instagram";
-import FacebookIcon from "@material-ui/icons/Facebook";
-import TwitterIcon from "@material-ui/icons/Twitter";
-import MusicNoteIcon from "@material-ui/icons/MusicNote";
-import "../../_variables.scss";
+import React from "react"
+import { useState } from "react"
+import { Link } from "react-router-dom"
+import Button from "@material-ui/core/Button"
+import TextField from "@material-ui/core/TextField"
+import Dialog from "@material-ui/core/Dialog"
+import DialogActions from "@material-ui/core/DialogActions"
+import DialogContent from "@material-ui/core/DialogContent"
+import DialogContentText from "@material-ui/core/DialogContentText"
+import DialogTitle from "@material-ui/core/DialogTitle"
+import InstagramIcon from "@material-ui/icons/Instagram"
+import FacebookIcon from "@material-ui/icons/Facebook"
+import TwitterIcon from "@material-ui/icons/Twitter"
+import MusicNoteIcon from "@material-ui/icons/MusicNote"
+import "../../_variables.scss"
 
-import "./showcase-page.scss";
+import "./showcase-page.scss"
+import axios from "axios"
 
 export default function ShowcasePage({
   name,
@@ -23,33 +24,49 @@ export default function ShowcasePage({
   tags,
   bio,
   merch,
+  email,
+  discoverrId,
 }) {
-  const [open, setOpen] = useState(false);
-  const [activeDeal, setActiveDeal] = useState({ name: "", offer: "" });
+  const getShowcaseProfile = () => {
+    try {
+      axios
+        .get(
+          "http://localhost:5000/users/getuserbyid/?id=112152278584364206992"
+        )
+        .then((res) => console.log(res.data))
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  getShowcaseProfile()
+
+  const [open, setOpen] = useState(false)
+  const [activeDeal, setActiveDeal] = useState({ name: "", offer: "" })
 
   const handleClickOpen = (selectedDeal) => {
-    setActiveDeal({ name: selectedDeal.name, offer: selectedDeal.offer });
-    setOpen(true);
-  };
+    setActiveDeal({ name: selectedDeal.name, offer: selectedDeal.offer })
+    setOpen(true)
+  }
 
   const handleClose = () => {
-    setOpen(false);
-  };
+    setOpen(false)
+  }
 
   const renderCorrectSocials = (social) => {
     switch (social) {
       case "Instagram":
-        return <InstagramIcon></InstagramIcon>;
+        return <InstagramIcon></InstagramIcon>
       case "Facebook":
-        return <FacebookIcon></FacebookIcon>;
+        return <FacebookIcon></FacebookIcon>
       case "Twitter":
-        return <TwitterIcon></TwitterIcon>;
+        return <TwitterIcon></TwitterIcon>
       case "TikTok":
-        return <MusicNoteIcon></MusicNoteIcon>;
+        return <MusicNoteIcon></MusicNoteIcon>
       default:
-        return social;
+        return social
     }
-  };
+  }
 
   return (
     <>
@@ -71,7 +88,7 @@ export default function ShowcasePage({
                       {renderCorrectSocials(social.social)}
                     </a>
                   </div>
-                );
+                )
               })}
             </div>
           </div>
@@ -80,7 +97,7 @@ export default function ShowcasePage({
             <div className="creator-tags">
               {" "}
               {tags.map((tag) => {
-                return " " + tag + ", ";
+                return " " + tag + ", "
               })}
             </div>
             <div className="creator-bio">{bio}</div>
@@ -128,7 +145,7 @@ export default function ShowcasePage({
                     Get Deal!
                   </Button>
                 </div>
-              );
+              )
             })}
           </div>
         </div>
@@ -149,7 +166,7 @@ export default function ShowcasePage({
                     Get Deal!
                   </Button>
                 </div>
-              );
+              )
             })}
           </div>
         </div>
@@ -184,5 +201,5 @@ export default function ShowcasePage({
         </DialogActions>
       </Dialog> */}
     </>
-  );
+  )
 }
