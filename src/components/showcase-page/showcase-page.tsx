@@ -27,19 +27,24 @@ export default function ShowcasePage({
   email,
   discoverrId,
 }) {
+  let showcaseData = { bio: "", name: "" }
   const getShowcaseProfile = () => {
     try {
       axios
         .get(
           "http://localhost:5000/users/getuserbyid/?id=112152278584364206992"
         )
-        .then((res) => console.log(res.data))
+        .then((res) => {
+          showcaseData = res.data[0]
+          console.log(showcaseData)
+        })
     } catch (error) {
       console.log(error)
     }
   }
 
   getShowcaseProfile()
+  debugger
 
   const [open, setOpen] = useState(false)
   const [activeDeal, setActiveDeal] = useState({ name: "", offer: "" })
@@ -93,14 +98,14 @@ export default function ShowcasePage({
             </div>
           </div>
           <div className="creator-details">
-            <div className="creator-name">{name}</div>
+            <div className="creator-name">{showcaseData.name}</div>
             <div className="creator-tags">
               {" "}
               {tags.map((tag) => {
                 return " " + tag + ", "
               })}
             </div>
-            <div className="creator-bio">{bio}</div>
+            <div className="creator-bio">{showcaseData.bio}</div>
           </div>
 
           <div className="creator-support-buttons vertical-stack">
