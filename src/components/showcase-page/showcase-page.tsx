@@ -36,17 +36,20 @@ export default function ShowcasePage({
           "http://localhost:5000/users/getuserbyid/?id=112152278584364206992"
         )
         .then((res) => {
+          console.log(res.data[0])
           setShowcaseData(res.data[0])
-          console.log(showcaseData.name)
         })
     } catch (error) {
       console.log(error)
     }
+
     setHasLoaded(true)
   }
 
   useEffect(() => {
     getShowcaseProfile()
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const [open, setOpen] = useState(false)
@@ -74,16 +77,13 @@ export default function ShowcasePage({
 
   return (
     <>
-      {hasLoaded && showcaseData.name.length > 0 ? (
+      {hasLoaded ? (
         <div className="showcase-container">
           <div className="showcase-entry-container">
             <div className="creator-image-wrapper">
               <div className="creator-image">
                 {" "}
-                <img
-                  className="profile-image"
-                  src="https://i.insider.com/5e14563c855cc23d4d6f14f3?width=1136&format=jpeg"
-                />
+                <img className="profile-image" src={showcaseData.imageUrl} />
               </div>
               <div className="creator-socials">
                 {socials.map((social) => {
