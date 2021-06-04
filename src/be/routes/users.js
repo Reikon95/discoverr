@@ -12,6 +12,13 @@ router.route("/finduseremail").get((req, res) => {
   User.find({ email: req.email }).then((users) => res.json(users))
 })
 
+router.route("/getuserbyid").get((req, res) => {
+  const desiredID = req.url
+  const queryParams = desiredID.split("?")[1].split("=")[1]
+  console.log(queryParams)
+  User.find({ googleId: queryParams }).then((users) => res.json(users))
+})
+
 router.route("/adduser").post((req, res) => {
   const reqBody = req.body
   const userID = req.body.id
@@ -53,7 +60,12 @@ router.route("/updateuserdetails").post((req, res) => {
   console.log(req)
   User.updateOne(
     { email: req.body.email },
-    { bio: req.body.bio }
+    {
+      bio: req.body.bio,
+      instagram: req.body.instagram,
+      facebook: req.body.facebook,
+      age: req.body.age,
+    }
   ).then((users) => res.json(users))
 })
 
