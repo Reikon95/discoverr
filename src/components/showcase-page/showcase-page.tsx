@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { useState } from "react"
 import { Link } from "react-router-dom"
 import Button from "@material-ui/core/Button"
@@ -27,24 +27,27 @@ export default function ShowcasePage({
   email,
   discoverrId,
 }) {
-  let showcaseData = { bio: "", name: "" }
-  const getShowcaseProfile = () => {
+  const [hasLoaded, setHasLoaded] = useState(false)
+  const [showcaseData, setShowcaseData] = useState(null)
+  const getShowcaseProfile = async () => {
     try {
-      axios
+      await axios
         .get(
           "http://localhost:5000/users/getuserbyid/?id=112152278584364206992"
         )
         .then((res) => {
-          showcaseData = res.data[0]
-          console.log(showcaseData)
+          setShowcaseData(res.data[0])
+          console.log(showcaseData.name)
         })
     } catch (error) {
       console.log(error)
     }
+    setHasLoaded(true)
   }
 
-  getShowcaseProfile()
-  debugger
+  useEffect(() => {
+    getShowcaseProfile()
+  }, [])
 
   const [open, setOpen] = useState(false)
   const [activeDeal, setActiveDeal] = useState({ name: "", offer: "" })
@@ -52,10 +55,6 @@ export default function ShowcasePage({
   const handleClickOpen = (selectedDeal) => {
     setActiveDeal({ name: selectedDeal.name, offer: selectedDeal.offer })
     setOpen(true)
-  }
-
-  const handleClose = () => {
-    setOpen(false)
   }
 
   const renderCorrectSocials = (social) => {
@@ -75,7 +74,112 @@ export default function ShowcasePage({
 
   return (
     <>
-      <div className="showcase-container">
+      {hasLoaded && showcaseData.name.length > 0 ? (
+        <div className="showcase-container">
+          <div className="showcase-entry-container">
+            <div className="creator-image-wrapper">
+              <div className="creator-image">
+                {" "}
+                <img
+                  className="profile-image"
+                  src="https://i.insider.com/5e14563c855cc23d4d6f14f3?width=1136&format=jpeg"
+                />
+              </div>
+              <div className="creator-socials">
+                {socials.map((social) => {
+                  return (
+                    <div className="socials-item">
+                      <a href={social.link} target="_blank" rel="noreferrer">
+                        {renderCorrectSocials(social.social)}
+                      </a>
+                    </div>
+                  )
+                })}
+              </div>
+            </div>
+            <div className="creator-details">
+              <div className="creator-name">{showcaseData.name}</div>
+              <div className="creator-tags">
+                {" "}
+                {tags.map((tag) => {
+                  return " " + tag + ", "
+                })}
+              </div>
+              <div className="creator-bio">{showcaseData.bio}</div>
+            </div>
+
+            <div className="creator-support-buttons vertical-stack">
+              <Button
+                color="primary"
+                variant="contained"
+                className="support-button"
+              >
+                FOLLOW ME
+              </Button>
+              <Button
+                color="primary"
+                variant="contained"
+                className="support-button"
+              >
+                SUPPORT ME
+              </Button>
+            </div>
+          </div>
+          <div className="creator-latest-uploads">
+            <div>MY LATEST UPLOADS</div>
+            <div>
+              <div>UPLOAD</div>
+              <div>UPLOAD</div>
+              <div>UPLOAD</div>
+            </div>
+          </div>
+          <div className="deals-and-discounts-container">
+            <div>DEALS AND DISCOUNTS</div>
+            <div className="deals-and-discounts-grid three-column-grid">
+              {deals.map((deal) => {
+                return (
+                  <div className="deal-item">
+                    <div>{deal.name} </div>
+                    <div>{deal.offer}</div>
+
+                    <Button
+                      variant="outlined"
+                      onClick={() => handleClickOpen(deal)}
+                      className="deal-button"
+                    >
+                      Get Deal!
+                    </Button>
+                  </div>
+                )
+              })}
+            </div>
+          </div>
+          <div className="merch-container">
+            <div>MERCH</div>
+            <div className="three-column-grid">
+              {deals.map((deal) => {
+                return (
+                  <div className="deal-item">
+                    <div>{deal.name} </div>
+                    <div>{deal.offer}</div>
+
+                    <Button
+                      variant="outlined"
+                      onClick={() => handleClickOpen(deal)}
+                      className="deal-button"
+                    >
+                      Get Deal!
+                    </Button>
+                  </div>
+                )
+              })}
+            </div>
+          </div>
+        </div>
+      ) : (
+        <>Loading...</>
+      )}
+      {/* <div className="showcase-container">
         <div className="showcase-entry-container">
           <div className="creator-image-wrapper">
             <div className="creator-image">
@@ -175,36 +279,7 @@ export default function ShowcasePage({
             })}
           </div>
         </div>
-      </div>
-
-      {/* 
-      
-
-      <Dialog
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="form-dialog-title"
-      >
-        <DialogTitle id="form-dialog-title">
-          Barney's {activeDeal.name} Deal
-        </DialogTitle>
-
-        <DialogContent>
-          <img
-            src="https://i.pinimg.com/originals/32/23/36/322336e667f7c01bb95681c82cbd5684.jpg"
-            className="deal-image"
-          />
-          <DialogContentText>Deal Code: CRISTIANO2021</DialogContentText>
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={handleClose}>Cancel</Button>
-          <Button color="primary">
-            <a href="https://www.nike.com/gb/" target="_blanl">
-              GO TO NIKE!
-            </a>
-          </Button>
-        </DialogActions>
-      </Dialog> */}
+      </div> */}
     </>
   )
 }
