@@ -16,6 +16,7 @@ import "../../_variables.scss"
 
 import "./showcase-page.scss"
 import axios from "axios"
+import DialogBox from "../ui-lib/dialog-box"
 
 export default function ShowcasePage({
   name,
@@ -108,7 +109,7 @@ export default function ShowcasePage({
               <div className="creator-bio">{showcaseData.bio}</div>
             </div>
 
-            <div className="creator-support-buttons vertical-stack">
+            {/* <div className="creator-support-buttons vertical-stack">
               <Button
                 color="primary"
                 variant="contained"
@@ -123,7 +124,7 @@ export default function ShowcasePage({
               >
                 SUPPORT ME
               </Button>
-            </div>
+            </div> */}
           </div>
           <div className="creator-latest-uploads">
             <div>MY LATEST UPLOADS</div>
@@ -175,111 +176,11 @@ export default function ShowcasePage({
               })}
             </div>
           </div>
+          {/* <DialogBox /> */}
         </div>
       ) : (
         <>Loading...</>
       )}
-      {/* <div className="showcase-container">
-        <div className="showcase-entry-container">
-          <div className="creator-image-wrapper">
-            <div className="creator-image">
-              {" "}
-              <img
-                className="profile-image"
-                src="https://i.insider.com/5e14563c855cc23d4d6f14f3?width=1136&format=jpeg"
-              />
-            </div>
-            <div className="creator-socials">
-              {socials.map((social) => {
-                return (
-                  <div className="socials-item">
-                    <a href={social.link} target="_blank" rel="noreferrer">
-                      {renderCorrectSocials(social.social)}
-                    </a>
-                  </div>
-                )
-              })}
-            </div>
-          </div>
-          <div className="creator-details">
-            <div className="creator-name">{showcaseData.name}</div>
-            <div className="creator-tags">
-              {" "}
-              {tags.map((tag) => {
-                return " " + tag + ", "
-              })}
-            </div>
-            <div className="creator-bio">{showcaseData.bio}</div>
-          </div>
-
-          <div className="creator-support-buttons vertical-stack">
-            <Button
-              color="primary"
-              variant="contained"
-              className="support-button"
-            >
-              FOLLOW ME
-            </Button>
-            <Button
-              color="primary"
-              variant="contained"
-              className="support-button"
-            >
-              SUPPORT ME
-            </Button>
-          </div>
-        </div>
-        <div className="creator-latest-uploads">
-          <div>MY LATEST UPLOADS</div>
-          <div>
-            <div>UPLOAD</div>
-            <div>UPLOAD</div>
-            <div>UPLOAD</div>
-          </div>
-        </div>
-        <div className="deals-and-discounts-container">
-          <div>DEALS AND DISCOUNTS</div>
-          <div className="deals-and-discounts-grid three-column-grid">
-            {deals.map((deal) => {
-              return (
-                <div className="deal-item">
-                  <div>{deal.name} </div>
-                  <div>{deal.offer}</div>
-
-                  <Button
-                    variant="outlined"
-                    onClick={() => handleClickOpen(deal)}
-                    className="deal-button"
-                  >
-                    Get Deal!
-                  </Button>
-                </div>
-              )
-            })}
-          </div>
-        </div>
-        <div className="merch-container">
-          <div>MERCH</div>
-          <div className="three-column-grid">
-            {deals.map((deal) => {
-              return (
-                <div className="deal-item">
-                  <div>{deal.name} </div>
-                  <div>{deal.offer}</div>
-
-                  <Button
-                    variant="outlined"
-                    onClick={() => handleClickOpen(deal)}
-                    className="deal-button"
-                  >
-                    Get Deal!
-                  </Button>
-                </div>
-              )
-            })}
-          </div>
-        </div>
-      </div> */}
     </>
   )
 }
