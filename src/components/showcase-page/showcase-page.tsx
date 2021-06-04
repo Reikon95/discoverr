@@ -30,6 +30,7 @@ export default function ShowcasePage({
 }) {
   const [hasLoaded, setHasLoaded] = useState(false)
   const [showcaseData, setShowcaseData] = useState(null)
+  const [socialLinks, setSocialLinks] = useState({})
   const getShowcaseProfile = async () => {
     try {
       await axios
